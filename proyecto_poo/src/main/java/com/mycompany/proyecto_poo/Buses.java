@@ -24,6 +24,8 @@ public class Buses {
     }
 
     //Accesores
+    //Accesores prueba 
+
 
     public String getNombre_conductor() {
         return Nombre_conductor;
