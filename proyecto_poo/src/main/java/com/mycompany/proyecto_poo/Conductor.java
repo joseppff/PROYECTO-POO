@@ -12,9 +12,11 @@ public class Conductor {
     
     private String Nombre;
     private String Apellido;
-    private int RUT;
+    private String RUT;
 
-    public Conductor(String Nombre, String Apellido, int RUT) {
+    private Conductor conductor;
+    
+    public Conductor(String Nombre, String Apellido, String RUT) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.RUT = RUT;
@@ -28,7 +30,7 @@ public class Conductor {
         return Apellido;
     }
 
-    public int getRUT() {
+    public String getRUT() {
         return RUT;
     }
 
@@ -40,9 +42,22 @@ public class Conductor {
         this.Apellido = Apellido;
     }
 
-    public void setRUT(int RUT) {
+    public void setRUT(String RUT) {
         this.RUT = RUT;
     }
     
+    public void agregarConductor(String Nombre, String Apellido, int RUT) {
+        Conductor nuevoConductor = new Conductor(Nombre, Apellido, RUT);
+        conductor = nuevoConductor;
+    }
     
+    public void eliminarConductor() {
+        conductor = null;
+    }
+    
+    public void modificarConductor(String nuevoNombre, String nuevoApellido, String nuevoRut) {
+        conductor.setNombre(nuevoNombre);
+        conductor.setApellido(nuevoApellido);
+        conductor.setRut(nuevoRut);
+    }
 }
