@@ -35,7 +35,7 @@ public class Reporte {
             while ((nextRecord = reader.readNext()) != null) {
                 
                 //System.out.println(nextRecord[4]);
-                if(i>0)LBuses.add(new Buses(nextRecord[0],nextRecord[1],nextRecord[2]));
+                if(i>0)LBuses.add(new Buses(nextRecord[0],nextRecord[1]));
                   
                 
                 for (String cell : nextRecord) {
