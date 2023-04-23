@@ -12,41 +12,41 @@ import java.util.Scanner;
 
 public class Buses {
     // atributos de la micro
-    private String Nombre_conductor;
-    private String Patente;
+    private String nombreConductor;
+    private String patente;
     
 
-    public Buses(String Nombre_conductor, String Patente) {
-        this.Nombre_conductor = Nombre_conductor;
-        this.Patente = Patente;
+    public Buses(String nombreConductor, String patente) {
+        this.nombreConductor = nombreConductor;
+        this.patente = patente;
         
     }
 
     // Accesores
     // Accesores prueba uwu
 
-    public String getNombre_conductor() {
-        return Nombre_conductor;
+    public String getnombreConductor() {
+        return nombreConductor;
     }
 
-    public String getPatente() {
-        return Patente;
+    public String getpatente() {
+        return patente;
     }
 
 
     // Mutadores
-    public void setNombre_conductor(String Nombre_conductor) {
-        this.Nombre_conductor = Nombre_conductor;
+    public void setnombreConductor(String nombreConductor) {
+        this.nombreConductor = nombreConductor;
     }
 
-    public void setPatente_letra(String Patente) {
-        this.Patente = Patente;
+    public void setpatente_letra(String patente) {
+        this.patente = patente;
     } 
 
     // comportamientos
 
     public void conducir() {
-        System.out.println("La micro " + Patente + " conducida por " + Nombre_conductor + " está en movimiento.");
+        System.out.println("La micro " + patente + " conducida por " + nombreConductor + " está en movimiento.");
     }
     
 }
