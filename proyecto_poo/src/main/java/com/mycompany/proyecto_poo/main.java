@@ -17,7 +17,7 @@ import com.opencsv.exceptions.CsvValidationException;
  */
 public class main {
 
-    public static void main(String[] args) throws FileNotFoundException{
+    public static void main(String[] args) throws FileNotFoundException, CsvValidationException{
         System.out.println("Bienvenido a nuestro programa.");
         System.out.println("Seleccione que operación desea realizar:");
         int opcion;
@@ -48,7 +48,7 @@ public class main {
                     
                     
                 case 5:
-                        leerRecorridoExcel();
+                        leerBusesExcel();
                         System.out.println("Operacion realizada con exito.");
     break;
                 default: 
@@ -105,9 +105,9 @@ public class main {
     
     
     public static Reporte reporte;
-    public static void leerRecorridoExcel() throws CsvValidationException {
+    public static void leerBusesExcel() throws CsvValidationException {
         
-        reporte=new Reporte("src/test/usuarios.csv");
+        reporte=new Reporte("src/test/reporteBuses.csv");
         reporte.Leer();
     }
 }
