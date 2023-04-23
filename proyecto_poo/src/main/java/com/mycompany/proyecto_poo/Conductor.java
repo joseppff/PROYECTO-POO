@@ -10,54 +10,57 @@ package com.mycompany.proyecto_poo;
  */
 public class Conductor {
     
-    private String Nombre;
-    private String Apellido;
-    private String RUT;
+    private int id;
+    private String nombre;
+    private String apellido;
+    private String rut;
 
-    private Conductor conductor;
-    
-    public Conductor(String Nombre, String Apellido, String RUT) {
-        this.Nombre = Nombre;
-        this.Apellido = Apellido;
-        this.RUT = RUT;
+//-------- CONSTRUCTOR --------
+
+    public Conductor(int id, String nombre, String apellido, String rut) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.rut = rut;
     }
-    
+//--------- GET        --------
+    public int getId() {
+        return id;
+    }
+
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public String getApellido() {
-        return Apellido;
+        return apellido;
     }
 
-    public String getRUT() {
-        return RUT;
-    }
-
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
-    }
-
-    public void setApellido(String Apellido) {
-        this.Apellido = Apellido;
-    }
-
-    public void setRUT(String RUT) {
-        this.RUT = RUT;
+    public String getRut() {
+        return rut;
     }
     
-    public void agregarConductor(String Nombre, String Apellido, String RUT) {
-        Conductor nuevoConductor = new Conductor(Nombre, Apellido, RUT);
-        conductor = nuevoConductor;
+//--------- SET        --------
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public void setRut(String rut) {
+        this.rut = rut;
     }
     
-    public void eliminarConductor() {
-        conductor = null;
-    }
+//--------- comportamientos ---
     
-    public void modificarConductor(String nuevoNombre, String nuevoApellido, String nuevoRut) {
-        conductor.setNombre(nuevoNombre);
-        conductor.setApellido(nuevoApellido);
-        conductor.setRUT(nuevoRut);
-    }
+//--------- FUNCIONES ---------
+    
+    
+
 }

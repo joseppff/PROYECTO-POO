@@ -3,50 +3,52 @@ package com.mycompany.proyecto_poo;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-/*
-    DATOS BUS:
-    Una micro tiene un conductor asignado, matricula y linea.
-
-*/ 
-
 public class Buses {
     // atributos de la micro
     private int idBus;
-    private String patente;
+    private int idConductorAsociado;
+    private String patenteBus;
     
-
-    public Buses(int idBus, String patente) {
+//-------- CONSTRUCTOR --------
+    public Buses(int idBus, String patenteBus, int idConductorAsociado) {
         this.idBus = idBus;
-        this.patente = patente;
-        
+        this.patenteBus = patenteBus;
+        this.idConductorAsociado = idConductorAsociado;
     }
+//--------- GET        --------
 
-    // Accesores
-    // Accesores prueba uwu
-
-    public int getidBus() {
+    public int getIdBus() {
         return idBus;
     }
 
-    public String getpatente() {
-        return patente;
+    public int getIdConductorAsociado() {
+        return idConductorAsociado;
     }
 
+    public String getPatenteBus() {
+        return patenteBus;
+    }
 
-    // Mutadores
-    public void setidBus(int idBus) {
+//--------- SET        --------
+
+    public void setIdBus(int idBus) {
         this.idBus = idBus;
     }
 
-    public void setpatente_letra(String patente) {
-        this.patente = patente;
-    } 
-
-    // comportamientos
-
-    public void conducir() {
-        System.out.println("La micro " + patente + " de id " + idBus + " está en movimiento.");
+    public void setIdConductorAsociado(int idConductorAsociado) {
+        this.idConductorAsociado = idConductorAsociado;
     }
+
+    public void setPatenteBus(String patenteBus) {
+        this.patenteBus = patenteBus;
+    }
+
+//--------- comportamientos ---
+    public void conducir() {
+        System.out.println("La micro " + patenteBus + " de id " + idBus + " está en movimiento.");
+    }
+    
+//--------- FUNCIONES ---------
+    
     
 }

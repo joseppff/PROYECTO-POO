@@ -30,7 +30,8 @@ public class main {
             System.out.println("2.- Agregar Datos.");
             System.out.println("3.- Imprimir Datos.");
             System.out.println("4.- Actualizar/Modificar Datos");
-            System.out.println("5.- Leer datos de un archivo excel.");
+            System.out.println("5.- Eliminar");
+            System.out.println("6.- Leer datos de un archivo excel.");
 
             // scanf
             opcion=Entrada.nextInt();
@@ -45,12 +46,10 @@ public class main {
                         System.out.println("Operacion realizada con exito.");
                     break;  
                     
-                    
-                    
-                case 5:
+                case 6:
                         leerBusesExcel();
                         System.out.println("Operacion realizada con exito.");
-    break;
+                    break;
                 default: 
                        System.out.println("La opción que ingreso no es valida");
                     break;
