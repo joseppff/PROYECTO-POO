@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author jose
  */
 public class Buses {
-    //atributos de la micro
+    // atributos de la micro
     private String Nombre_conductor;
     private String Patente_letra;
     private int Patente_numero;
@@ -23,9 +23,8 @@ public class Buses {
         this.Patente_numero = Patente_numero;
     }
 
-    //Accesores
-    //Accesores prueba 
-
+    // Accesores
+    // Accesores prueba uwu
 
     public String getNombre_conductor() {
         return Nombre_conductor;
@@ -39,7 +38,7 @@ public class Buses {
         return Patente_numero;
     }
 
-    //Mutadores
+    // Mutadores
     public void setNombre_conductor(String Nombre_conductor) {
         this.Nombre_conductor = Nombre_conductor;
     }
@@ -51,6 +50,6 @@ public class Buses {
     public void setPatente_numero(int Patente_numero) {
         this.Patente_numero = Patente_numero;
     }
-    
-    //comportamientos
+
+    // comportamientos
 }
