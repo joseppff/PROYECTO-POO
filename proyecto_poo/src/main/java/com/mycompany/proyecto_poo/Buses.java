@@ -11,6 +11,13 @@ import java.util.Scanner;
  *
  * @author jose
  */
+
+/*
+    DATOS BUS:
+    Una micro tiene un conductor asignado, matricula y linea.
+
+*/ 
+
 public class Buses {
     // atributos de la micro
     private String Nombre_conductor;
