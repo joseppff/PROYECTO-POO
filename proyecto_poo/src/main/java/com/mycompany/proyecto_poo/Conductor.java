@@ -14,6 +14,12 @@ public class Conductor {
     private String Apellido;
     private int RUT;
 
+    public Conductor(String Nombre, String Apellido, int RUT) {
+        this.Nombre = Nombre;
+        this.Apellido = Apellido;
+        this.RUT = RUT;
+    }
+    
     public String getNombre() {
         return Nombre;
     }
@@ -37,7 +43,6 @@ public class Conductor {
     public void setRUT(int RUT) {
         this.RUT = RUT;
     }
-    
     
     
 }
