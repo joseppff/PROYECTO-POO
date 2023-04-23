@@ -21,13 +21,13 @@ import java.util.Scanner;
 public class Buses {
     // atributos de la micro
     private String Nombre_conductor;
-    private String Patente_letra;
-    private int Patente_numero;
+    private String Patente;
+    
 
-    public Buses(String Nombre_conductor, String Patente_letra, int Patente_numero) {
+    public Buses(String Nombre_conductor, String Patente) {
         this.Nombre_conductor = Nombre_conductor;
-        this.Patente_letra = Patente_letra;
-        this.Patente_numero = Patente_numero;
+        this.Patente = Patente;
+        
     }
 
     // Accesores
@@ -37,26 +37,19 @@ public class Buses {
         return Nombre_conductor;
     }
 
-    public String getPatente_letra() {
-        return Patente_letra;
+    public String getPatente() {
+        return Patente;
     }
 
-    public int getPatente_numero() {
-        return Patente_numero;
-    }
 
     // Mutadores
     public void setNombre_conductor(String Nombre_conductor) {
         this.Nombre_conductor = Nombre_conductor;
     }
 
-    public void setPatente_letra(String Patente_letra) {
-        this.Patente_letra = Patente_letra;
-    }
-
-    public void setPatente_numero(int Patente_numero) {
-        this.Patente_numero = Patente_numero;
-    }
+    public void setPatente_letra(String Patente) {
+        this.Patente = Patente;
+    } 
 
     // comportamientos
 }
