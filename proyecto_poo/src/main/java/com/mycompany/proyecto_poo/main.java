@@ -8,6 +8,7 @@ package com.mycompany.proyecto_poo;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import com.opencsv.exceptions.CsvValidationException;
 
 
 /**
@@ -42,8 +43,12 @@ public class main {
                 case 2: 
                         InsertarDatosTxt();
                         System.out.println("Operacion realizada con exito.");
-                    break;    
-
+                    break;  
+                    
+                    
+                    
+                case 5:
+                        
                 default: 
                        System.out.println("La opción que ingreso no es valida");
                     break;
@@ -95,7 +100,14 @@ public class main {
         }
              
     }
-
+    
+    
+    public static Reporte reporte;
+    public static void leerRecorridoExcel() throws CsvValidationException {
+        
+        reporte=new Reporte("src/test/usuarios.csv");
+        reporte.Leer();
+    }
 }
 
 

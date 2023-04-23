@@ -46,7 +46,7 @@ public class Conductor {
         this.RUT = RUT;
     }
     
-    public void agregarConductor(String Nombre, String Apellido, int RUT) {
+    public void agregarConductor(String Nombre, String Apellido, String RUT) {
         Conductor nuevoConductor = new Conductor(Nombre, Apellido, RUT);
         conductor = nuevoConductor;
     }
@@ -58,6 +58,6 @@ public class Conductor {
     public void modificarConductor(String nuevoNombre, String nuevoApellido, String nuevoRut) {
         conductor.setNombre(nuevoNombre);
         conductor.setApellido(nuevoApellido);
-        conductor.setRut(nuevoRut);
+        conductor.setRUT(nuevoRut);
     }
 }
