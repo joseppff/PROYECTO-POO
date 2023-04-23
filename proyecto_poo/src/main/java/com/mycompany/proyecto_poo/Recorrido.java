@@ -23,13 +23,15 @@ public class Recorrido {
     //atributos de la micro
     private int numeroRecorrido;
     private int cantParaderos;
-    private List<String> paradas;
+    private String nombreParadas;
 
+    public ArrayList<Recorrido> paradas=new ArrayList<>(cantParaderos);
+    
     //Constructor
-    public Recorrido(int numeroRecorrido, int cantParaderos, <any> paradas) {
+    public Recorrido(int numeroRecorrido, int cantParaderos, String nombreParadas) {
         this.numeroRecorrido = numeroRecorrido;
         this.cantParaderos = cantParaderos;
-        this.paradas = paradas;
+        this.nombreParadas = nombreParadas;
     }
     
     //Accesores
@@ -42,8 +44,8 @@ public class Recorrido {
         return cantParaderos;
     }
 
-    public <any> getParadas() {
-        return paradas;
+    public String getnombreParadas() {
+        return nombreParadas;
     }
     
     
@@ -57,8 +59,8 @@ public class Recorrido {
         this.cantParaderos = cantParaderos;
     }
 
-    public void setParadas(<any> paradas) {
-        this.paradas = paradas;
+    public void setNombreParadas(String nombreParadas) {
+        this.nombreParadas = nombreParadas;
     }   
     
 }
