@@ -24,8 +24,13 @@ public class main {
         Scanner Entrada=new Scanner(System.in);
         
         do{
-            System.out.println("1- Leer Datos");
-            System.out.println("0- Salir del programa");
+            System.out.println("0.- Salir del programa.");
+            System.out.println("1.- Leer datos de un archivo txt.");
+            System.out.println("2.- Agregar Datos.");
+            System.out.println("3.- Imprimir Datos.");
+            System.out.println("4.- Actualizar/Modificar Datos");
+            System.out.println("5.- Leer datos de un archivo excel.");
+
             // scanf
             opcion=Entrada.nextInt();
             
@@ -34,7 +39,11 @@ public class main {
                         InsertarDatosTxt();
                         System.out.println("Operacion realizada con exito.");
                     break;      
-                    
+                case 2: 
+                        InsertarDatosTxt();
+                        System.out.println("Operacion realizada con exito.");
+                    break;    
+
                 default: 
                        System.out.println("La opción que ingreso no es valida");
                     break;
