@@ -12,12 +12,12 @@ import java.util.Scanner;
 
 public class Buses {
     // atributos de la micro
-    private String nombreConductor;
+    private int idBus;
     private String patente;
     
 
-    public Buses(String nombreConductor, String patente) {
-        this.nombreConductor = nombreConductor;
+    public Buses(int idBus, String patente) {
+        this.idBus = idBus;
         this.patente = patente;
         
     }
@@ -25,8 +25,8 @@ public class Buses {
     // Accesores
     // Accesores prueba uwu
 
-    public String getnombreConductor() {
-        return nombreConductor;
+    public int getidBus() {
+        return idBus;
     }
 
     public String getpatente() {
@@ -35,8 +35,8 @@ public class Buses {
 
 
     // Mutadores
-    public void setnombreConductor(String nombreConductor) {
-        this.nombreConductor = nombreConductor;
+    public void setidBus(int idBus) {
+        this.idBus = idBus;
     }
 
     public void setpatente_letra(String patente) {
@@ -46,7 +46,7 @@ public class Buses {
     // comportamientos
 
     public void conducir() {
-        System.out.println("La micro " + patente + " conducida por " + nombreConductor + " está en movimiento.");
+        System.out.println("La micro " + patente + " de id " + idBus + " está en movimiento.");
     }
     
 }
