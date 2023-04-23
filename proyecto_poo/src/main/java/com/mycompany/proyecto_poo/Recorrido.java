@@ -21,44 +21,44 @@ import java.util.Scanner;
 
 public class Recorrido {
     //atributos de la micro
-    private int Numero_recorrido;
-    private String ConductorAsociadoUno;
-    private String ConductorAsociadoDos;
+    private int numeroRecorrido;
+    private int cantParaderos;
+    private List<String> paradas;
 
     //Constructor
-    public Recorrido(int Numero_recorrido, String ConductorAsociadoUno, String ConductorAsociadoDos) {
-        this.Numero_recorrido = Numero_recorrido;
-        this.ConductorAsociadoUno = ConductorAsociadoUno;
-        this.ConductorAsociadoDos = ConductorAsociadoDos;
+    public Recorrido(int numeroRecorrido, int cantParaderos, <any> paradas) {
+        this.numeroRecorrido = numeroRecorrido;
+        this.cantParaderos = cantParaderos;
+        this.paradas = paradas;
     }
-
     
     //Accesores
-    public int getNumero_recorrido() {
-        return Numero_recorrido;
+
+    public int getNumeroRecorrido() {
+        return numeroRecorrido;
     }
 
-    public String getConductorAsociadoUno() {
-        return ConductorAsociadoUno;
+    public int getCantParaderos() {
+        return cantParaderos;
     }
 
-    public String getConductorAsociadoDos() {
-        return ConductorAsociadoDos;
+    public <any> getParadas() {
+        return paradas;
     }
+    
     
     //Mutadores
-    public void setNumero_recorrido(int Numero_recorrido) {
-        this.Numero_recorrido = Numero_recorrido;
+
+    public void setNumeroRecorrido(int numeroRecorrido) {
+        this.numeroRecorrido = numeroRecorrido;
     }
 
-    public void setConductorAsociadoUno(String ConductorAsociadoUno) {
-        this.ConductorAsociadoUno = ConductorAsociadoUno;
+    public void setCantParaderos(int cantParaderos) {
+        this.cantParaderos = cantParaderos;
     }
 
-    public void setConductorAsociadoDos(String ConductorAsociado2) {
-        this.ConductorAsociadoDos = ConductorAsociado2;
-    }
-    
-    
+    public void setParadas(<any> paradas) {
+        this.paradas = paradas;
+    }   
     
 }
