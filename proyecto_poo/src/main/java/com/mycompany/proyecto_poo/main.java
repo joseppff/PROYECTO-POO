@@ -48,7 +48,9 @@ public class main {
                     
                     
                 case 5:
-                        
+                        leerRecorridoExcel();
+                        System.out.println("Operacion realizada con exito.");
+    break;
                 default: 
                        System.out.println("La opción que ingreso no es valida");
                     break;
