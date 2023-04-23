@@ -3,52 +3,65 @@ package com.mycompany.proyecto_poo;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+/*
+    DATOS BUS:
+    Una micro tiene un conductor asignado, matricula y linea.
+
+*/ 
+
 public class Buses {
     // atributos de la micro
-    private int idBus;
-    private int idConductorAsociado;
-    private String patenteBus;
+    private String Nombre_conductor;
+    private String PatenteMicro;
     
-//-------- CONSTRUCTOR --------
-    public Buses(int idBus, String patenteBus, int idConductorAsociado) {
-        this.idBus = idBus;
-        this.patenteBus = patenteBus;
-        this.idConductorAsociado = idConductorAsociado;
-    }
-//--------- GET        --------
 
-    public int getIdBus() {
-        return idBus;
+    public Buses(String Nombre_conductor, String PatenteMicro) {
+        this.Nombre_conductor = Nombre_conductor;
+        this.PatenteMicro = PatenteMicro;
+        
     }
 
-    public int getIdConductorAsociado() {
-        return idConductorAsociado;
+    // Accesores
+    // Accesores prueba uwu
+
+    public String getNombre_conductor() {
+        return Nombre_conductor;
     }
 
-    public String getPatenteBus() {
-        return patenteBus;
+    public String getPatente() {
+        return PatenteMicro;
     }
 
-//--------- SET        --------
 
-    public void setIdBus(int idBus) {
-        this.idBus = idBus;
+    // Mutadores
+    public void setNombre_conductor(String Nombre_conductor) {
+        this.Nombre_conductor = Nombre_conductor;
     }
 
-    public void setIdConductorAsociado(int idConductorAsociado) {
-        this.idConductorAsociado = idConductorAsociado;
-    }
+    public void setPatente_letra(String PatenteMicro) {
+        this.PatenteMicro = PatenteMicro;
+    } 
 
-    public void setPatenteBus(String patenteBus) {
-        this.patenteBus = patenteBus;
-    }
+    // comportamientos
 
-//--------- comportamientos ---
     public void conducir() {
-        System.out.println("La micro " + patenteBus + " de id " + idBus + " está en movimiento.");
+        System.out.println("La micro " + PatenteMicro + " conducida por " + Nombre_conductor + " está en movimiento.");
+    }
+
+
+    //imprimir
+
+    public void imprimirDatos() {
+        System.out.println("Número de recorrido: " + this.numeroRecorrido);
+        System.out.println("ID del conductor: " + this.idConductor);
+        System.out.println("Patente de la micro: " + this.PatenteMicro);
     }
     
-//--------- FUNCIONES ---------
+            
+
+        
     
+
     
 }

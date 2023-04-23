@@ -12,22 +12,29 @@ import java.util.Scanner;
  * @author jose
  */
 
+/*
+    DATOS DE RECORRIDOS:
+    Un recorrido es la linea de la micro, esta puede tener 2 o más micreros. 
+    Ejem: 108 tiene a Juan y Antonio.
+
+*/ 
+
 public class Recorrido {
-    
+    //atributos de la micro
     private int numeroRecorrido;
     private int cantParaderos;
     private String nombreParadas;
 
     public ArrayList<Recorrido> paradas=new ArrayList<>(cantParaderos);
     
-//-------- CONSTRUCTOR --------
+    //Constructor
     public Recorrido(int numeroRecorrido, int cantParaderos, String nombreParadas) {
         this.numeroRecorrido = numeroRecorrido;
         this.cantParaderos = cantParaderos;
         this.nombreParadas = nombreParadas;
     }
     
-//--------- GET        --------
+    //Accesores
 
     public int getNumeroRecorrido() {
         return numeroRecorrido;
@@ -42,7 +49,7 @@ public class Recorrido {
     }
     
     
-//--------- SET        --------
+    //Mutadores
 
     public void setNumeroRecorrido(int numeroRecorrido) {
         this.numeroRecorrido = numeroRecorrido;
@@ -56,13 +63,12 @@ public class Recorrido {
         this.nombreParadas = nombreParadas;
     }   
     
-//--------- FUNCIONES
-/*
-            System.out.println("2.- Agregar Datos.");
-            System.out.println("3.- Imprimir Datos.");
-            System.out.println("4.- Actualizar/Modificar Datos");
-            System.out.println("5.- Eliminar");
-            System.out.println("6.- Leer datos de un archivo excel.");
-    */    
+    //imprimir
 
+    public void imprimirDatos() {
+        System.out.println("Número de recorrido: " + this.numeroRecorrido);
+        System.out.println("Cantidad de paraderos: " + this.cantParaderos);
+        System.out.println("Nombre de paradero: " + this.nombreParadas);
+        System.out.println("Lista de paraderos: " + this.listaParaderos);
+    }
 }

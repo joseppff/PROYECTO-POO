@@ -10,57 +10,48 @@ package com.mycompany.proyecto_poo;
  */
 public class Conductor {
     
-    private int id;
-    private String nombre;
-    private String apellido;
-    private String rut;
+    private String Nombre;
+    private String Apellido;
+    private int RUT;
 
-//-------- CONSTRUCTOR --------
-
-    public Conductor(int id, String nombre, String apellido, String rut) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.rut = rut;
+    public Conductor(String Nombre, String Apellido, int RUT) {
+        this.Nombre = Nombre;
+        this.Apellido = Apellido;
+        this.RUT = RUT;
     }
-//--------- GET        --------
-    public int getId() {
-        return id;
-    }
-
+    
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
     public String getApellido() {
-        return apellido;
+        return Apellido;
     }
 
-    public String getRut() {
-        return rut;
-    }
-    
-//--------- SET        --------
-    public void setId(int id) {
-        this.id = id;
+    public int getRUT() {
+        return RUT;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellido(String Apellido) {
+        this.Apellido = Apellido;
     }
 
-    public void setRut(String rut) {
-        this.rut = rut;
+    public void setRUT(int RUT) {
+        this.RUT = RUT;
+    }
+
+    //imprimir
+
+    public void imprimirDatos() {
+        System.out.println("ID del conductor: " + this.idConductor);
+        System.out.println("Nombre: " + this.Nombre);
+        System.out.println("Apellido: " + this.Apellido);
+        System.out.println("RUT: " + this.RUT);
     }
     
-//--------- comportamientos ---
     
-//--------- FUNCIONES ---------
-    
-    
-
 }
