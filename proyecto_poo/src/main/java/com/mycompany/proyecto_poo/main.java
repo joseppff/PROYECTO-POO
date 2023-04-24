@@ -20,7 +20,7 @@ public class main {
     public static void main(String[] args) throws FileNotFoundException, CsvValidationException{
         System.out.println("Bienvenido a nuestro programa.");
         System.out.println("Seleccione que operación desea realizar:");
-        int opcion;
+        int opcion, subOpcion;
         
         Scanner Entrada=new Scanner(System.in);
         
@@ -35,17 +35,55 @@ public class main {
 
             // scanf
             opcion=Entrada.nextInt();
+            subOpcion=Entrada.nextInt();
             
             switch(opcion){
+                case 0:
+                    break;
+
                 case 1: 
                         InsertarDatosTxt();
                         System.out.println("Operacion realizada con exito.");
-                    break;      
-                case 2: 
-                        InsertarDatosTxt();
-                        System.out.println("Operacion realizada con exito.");
-                    break;  
-                    
+                    break;
+                // AGREGAR
+                case 2:
+                    System.out.println("Seleccione que dato desea AGREGAR:");
+                    switch(subOpcion){
+                        case 1:
+                        Recorrido.agregarRecorrido();
+                        break;
+                        case 2:
+                        Buses.agregarBus();
+                        break;
+                        case 3:
+                        Conductor.agregarConductor();
+                        break;
+                        default: 
+                       System.out.println("La opción que ingreso no es valida");
+                    break;
+                    }
+                    System.out.println("Operacion realizada con exito.");
+                
+                //IMPRIMIR
+                case 3: 
+                System.out.println("Seleccione que dato desea IMPRIMIR:");
+                switch(subOpcion){
+                    case 1:
+                    Recorrido.imprimirRecorrido();
+                    break;
+                    case 2:
+                    Buses.agregarBus();
+                    break;
+                    case 3:
+                    Conductor.agregarConductor();
+                    break;
+                    default: 
+                   System.out.println("La opción que ingreso no es valida");
+                break;
+                }
+                System.out.println("Operacion realizada con exito.");
+
+                
                 case 6:
                         leerBusesExcel();
                         System.out.println("Operacion realizada con exito.");

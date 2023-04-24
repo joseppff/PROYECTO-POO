@@ -4,29 +4,30 @@
  */
 package com.mycompany.proyecto_poo;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author diego
  */
 public class Conductor {
     
-    private int id;
     private String nombre;
     private String apellido;
     private String rut;
 
-//-------- CONSTRUCTOR --------
+    public static ArrayList<Conductor> listaConductores = new ArrayList<Conductor>();
 
-    public Conductor(int id, String nombre, String apellido, String rut) {
-        this.id = id;
+    //-------- CONSTRUCTOR --------
+
+    public Conductor(String nombre, String apellido, String rut) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.rut = rut;
     }
-//--------- GET        --------
-    public int getId() {
-        return id;
-    }
+    
+    //--------- GET        --------
 
     public String getNombre() {
         return nombre;
@@ -39,12 +40,8 @@ public class Conductor {
     public String getRut() {
         return rut;
     }
-    
-//--------- SET        --------
-    public void setId(int id) {
-        this.id = id;
-    }
 
+    //--------- SET        --------
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -60,7 +57,7 @@ public class Conductor {
 //--------- comportamientos ---
     
 //--------- FUNCIONES ---------
-    
-    
-
-}
+//2.- AGREGAR DATO
+//3.- IMPRIMIR DATOS
+//4.- MODIFICAR/ACTUALIZAR DATO
+//5.- ELIMINAR
