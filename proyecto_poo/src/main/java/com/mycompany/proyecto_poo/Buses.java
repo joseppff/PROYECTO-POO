@@ -3,12 +3,10 @@ package com.mycompany.proyecto_poo;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-/*
-    DATOS BUS:
-    Una micro tiene un conductor asignado, matricula y linea.
-
-*/ 
+/**
+ *
+ * @author jose
+ */
 
 public class Buses {
     // atributos de la micro
@@ -36,8 +34,8 @@ public class Buses {
         return rutConductorAsociado;
     }
 
-    public String getPatente() {
-        return PatenteMicro;
+    public String getPatenteBus() {
+        return patenteBus;
     }
 
 //--------- SET        --------
@@ -150,9 +148,7 @@ public void actualizarModificarBuses() {
         }
     }
     System.out.println("No se encontró ningún bus con la patente ingresada");
-}
-
-    
+}    
 
 //System.out.println("5.- Eliminar");
 public static void eliminarBus() {

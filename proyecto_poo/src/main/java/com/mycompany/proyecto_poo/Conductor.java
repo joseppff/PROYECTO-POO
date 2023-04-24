@@ -30,15 +30,15 @@ public class Conductor {
     //--------- GET        --------
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public String getApellido() {
-        return Apellido;
+        return apellido;
     }
 
-    public int getRUT() {
-        return RUT;
+    public String getRut() {
+        return rut;
     }
 
     //--------- SET        --------
@@ -46,23 +46,87 @@ public class Conductor {
         this.nombre = nombre;
     }
 
-    public void setRUT(int RUT) {
-        this.RUT = RUT;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    //imprimir
-
-    public void imprimirDatos() {
-        System.out.println("ID del conductor: " + this.idConductor);
-        System.out.println("Nombre: " + this.Nombre);
-        System.out.println("Apellido: " + this.Apellido);
-        System.out.println("RUT: " + this.RUT);
+    public void setRut(String rut) {
+        this.rut = rut;
     }
-    
+
+    //2.- AGREGAR CONDUCTOR
+    public static void agregarConductor() {
+        Scanner Scanner = new Scanner(System.in);
+        System.out.printf("Ingrese Nuevos datos:");
+
+        System.out.print("1.- Nombre del conductor: ");
+        String nombre = Scanner.nextLine();
+        System.out.print("2.- Apellido del conductor: ");
+        String apellido = Scanner.nextLine();
+        System.out.print("3.- Rut del conductor: ");
+        String rut = Scanner.nextLine();
+        Conductor conductor = new Conductor(nombre, apellido, rut);
+        listaConductores.add(conductor);
+        System.out.println("Conductor agregado exitosamente.");
+    }
+
+    //3.- IMPRIMIR
+    public void imprimirConductores(ArrayList<Conductor> conductores) {
+
+        Scanner Scanner = new Scanner(System.in);
+        System.out.printf("Ingrese el RUT del conductor a imprimir:");
+        String rutBucar = Scanner.nextLine();
+
+        for (Conductor conductor : conductores) {
+            if(rutBucar == conductor.getRut()){
+                System.out.println("Nombre: " + conductor.getNombre());
+                System.out.println("Apellido: " + conductor.getApellido());
+                System.out.println("RUT: " + conductor.getRut());
+                }
+        }
+        System.out.println("Operación realizada exitosamente.");
+    }
+
+    //4.- MODIFICAR ACTUALIZAR
+    public void actualizarModificarConductor(String nuevoNombre, String nuevoApellido, String nuevoRut){
+
+        int opcion;
+        Scanner Entrada=new Scanner(System.in);
+
+        System.out.println("¿Que datos del conductor desea modificar?");
+        System.out.println("1.- Nombre.");
+        System.out.println("2.- Apellido.");
+        System.out.println("3.- Rut.");
+        System.out.println("0.- Finalizar.");
+
+        opcion=Entrada.nextInt();
+        do{
+            switch(opcion){
+                case 1:
+                    System.out.println("Ingrese el nuevo nombre:");
+                    conductor.setNombre(nuevoNombre);
+                break;
+
+                case 2:
+                    System.out.println("Ingrese el nuevo apellido:");
+                    conductor.setApellido(nuevoApellido);
+
+                break;
+
+                case 3:
+                    System.out.println("Ingrese el nuevo rut:");
+                    conductor.setRut(nuevoRut);
+                break;
+
+                default: 
+                    System.out.println("La opción que ingreso no es valida");
+                break;
+            }
+        }while(opcion != 0);
+
+        System.out.println("Operación Finalizada :D .");
+    }
+    //5.- ELIMINAR
+}
+
 //--------- comportamientos ---
-    
-//--------- FUNCIONES ---------
-//2.- AGREGAR DATO
-//3.- IMPRIMIR DATOS
-//4.- MODIFICAR/ACTUALIZAR DATO
-//5.- ELIMINAR
