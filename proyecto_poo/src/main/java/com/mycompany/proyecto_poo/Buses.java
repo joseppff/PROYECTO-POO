@@ -60,7 +60,7 @@ public class Buses {
 //--------- FUNCIONES ---------
 
 //2.- AGREGAR DATO
-    public static void agregarBus() {
+    public static void agregarBuses() {
         Scanner scanner = new Scanner(System.in);
         System.out.printf("Ingrese Nuevos datos:");
         
@@ -80,84 +80,84 @@ public class Buses {
     }
 
 //3.- IMPRIMIR DATOS
-public static void imprimirBus() {
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Ingrese la patente del bus que desea imprimir: ");
-    String patente = scanner.nextLine();
-    boolean encontrado = false;
-    for (Buses bus : listaBuses) {
-        if (bus.getPatenteBus().equals(patente)) {
-            System.out.println("Número de recorrido: " + bus.getNumeroRecorrido());
-            System.out.println("RUT del conductor asociado: " + bus.getRutConductorAsociado());
-            System.out.println("Patente del bus: " + bus.getPatenteBus());
-            encontrado = true;
-            System.out.println("Operación Finalizada :D .");
-            break;
+    public static void imprimirBuses() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese la patente del bus que desea imprimir: ");
+        String patente = scanner.nextLine();
+        boolean encontrado = false;
+        for (Buses bus : listaBuses) {
+            if (bus.getPatenteBus().equals(patente)) {
+                System.out.println("Número de recorrido: " + bus.getNumeroRecorrido());
+                System.out.println("RUT del conductor asociado: " + bus.getRutConductorAsociado());
+                System.out.println("Patente del bus: " + bus.getPatenteBus());
+                encontrado = true;
+                System.out.println("Operación Finalizada :D .");
+                break;
+            }
         }
+        if (!encontrado) {
+            System.out.println("No se encontró un bus con la patente ingresada.");
+        }
+        System.out.println("Operación realizada exitosamente.");
     }
-    if (!encontrado) {
-        System.out.println("No se encontró un bus con la patente ingresada.");
-    }
-    System.out.println("Operación realizada exitosamente.");
-}
 
 
 //4.- MODIFICAR/ACTUALIZAR DATO
-public void actualizarModificarBuses() {
-    int opcion;
-    Scanner scanner = new Scanner(System.in);
+    public static void modificarBuses() {
+        int opcion;
+        Scanner scanner = new Scanner(System.in);
 
-    System.out.println("Ingrese la patente del bus a modificar: ");
-    String patente = scanner.nextLine();
+        System.out.println("Ingrese la patente del bus a modificar: ");
+        String patente = scanner.nextLine();
 
-    for (Buses bus : listaBuses) {
-        if (bus.getPatenteBus().equals(patente)) {
-            System.out.println("¿Qué dato del bus desea modificar?");
-            System.out.println("1.- Número de recorrido");
-            System.out.println("2.- RUT del conductor asociado");
-            System.out.println("3.- Patente del bus");
-            System.out.println("0.- Finalizar.");
+        for (Buses bus : listaBuses) {
+            if (bus.getPatenteBus().equals(patente)) {
+                System.out.println("¿Qué dato del bus desea modificar?");
+                System.out.println("1.- Número de recorrido");
+                System.out.println("2.- RUT del conductor asociado");
+                System.out.println("3.- Patente del bus");
+                System.out.println("0.- Finalizar.");
 
-            opcion = scanner.nextInt();
-            scanner.nextLine();
+                opcion = scanner.nextInt();
+                scanner.nextLine();
 
-            switch (opcion) {
-                case 0:
-                    break;
-                case 1:
-                    System.out.println("Ingrese el nuevo número de recorrido:");
-                    int numeroRecorrido = scanner.nextInt();
-                    scanner.nextLine();
-                    bus.setNumeroRecorrido(numeroRecorrido);
-                    System.out.println("Número de recorrido actualizado correctamente");
-                    break;
+                switch (opcion) {
+                    case 0:
+                        break;
+                    case 1:
+                        System.out.println("Ingrese el nuevo número de recorrido:");
+                        int numeroRecorrido = scanner.nextInt();
+                        scanner.nextLine();
+                        bus.setNumeroRecorrido(numeroRecorrido);
+                        System.out.println("Número de recorrido actualizado correctamente");
+                        break;
 
-                case 2:
-                    System.out.println("Ingrese el nuevo RUT del conductor asociado:");
-                    String rutConductor = scanner.nextLine();
-                    bus.setRutConductorAsociado(rutConductor);
-                    System.out.println("RUT del conductor asociado actualizado correctamente");
-                    break;
+                    case 2:
+                        System.out.println("Ingrese el nuevo RUT del conductor asociado:");
+                        String rutConductor = scanner.nextLine();
+                        bus.setRutConductorAsociado(rutConductor);
+                        System.out.println("RUT del conductor asociado actualizado correctamente");
+                        break;
 
-                case 3:
-                    System.out.println("Ingrese la nueva patente del bus:");
-                    String patenteNueva = scanner.nextLine();
-                    bus.setPatenteBus(patenteNueva);
-                    System.out.println("Patente del bus actualizada correctamente");
-                    break;
+                    case 3:
+                        System.out.println("Ingrese la nueva patente del bus:");
+                        String patenteNueva = scanner.nextLine();
+                        bus.setPatenteBus(patenteNueva);
+                        System.out.println("Patente del bus actualizada correctamente");
+                        break;
 
-                default:
-                    System.out.println("La opción ingresada no es válida");
-                    break;
+                    default:
+                        System.out.println("La opción ingresada no es válida");
+                        break;
+                }
+                return;
             }
-            return;
         }
-    }
-    System.out.println("Operación Finalizada :D .");
-}    
+        System.out.println("Operación Finalizada :D .");
+    }    
 
 //System.out.println("5.- Eliminar");
-    public static void eliminarBus() {
+    public static void eliminarBuses() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese la patente del bus que desea eliminar: ");
         String patente = scanner.nextLine();

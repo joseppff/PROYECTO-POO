@@ -72,7 +72,7 @@ public class Conductor {
     }
 
     //3.- IMPRIMIR
-    public void imprimirConductores() {
+    public static void imprimirConductor() {
 
         Scanner scanner = new Scanner(System.in);
         System.out.printf("Ingrese el RUT del conductor a imprimir:");
@@ -94,7 +94,7 @@ public class Conductor {
     }
 
     //4.- MODIFICAR ACTUALIZAR
-    public void actualizarModificarConductor(){
+    public static void modificarConductor(){
 
         int opcion;
         Scanner scanner=new Scanner(System.in);
@@ -159,7 +159,7 @@ public class Conductor {
     }
     //5.- ELIMINAR
 
-    public static void eliminar() {
+    public static void eliminarConductor() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Ingrese el RUT del conductor a eliminar: ");
