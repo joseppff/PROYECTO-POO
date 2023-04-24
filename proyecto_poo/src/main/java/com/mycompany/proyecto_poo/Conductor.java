@@ -68,65 +68,121 @@ public class Conductor {
         Conductor conductor = new Conductor(nombre, apellido, rut);
         listaConductores.add(conductor);
         System.out.println("Conductor agregado exitosamente.");
+        System.out.println("Operación Finalizada :D .");
     }
 
     //3.- IMPRIMIR
-    public void imprimirConductores(ArrayList<Conductor> conductores) {
+    public void imprimirConductores() {
 
-        Scanner Scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.printf("Ingrese el RUT del conductor a imprimir:");
-        String rutBucar = Scanner.nextLine();
+        String rutBucar = scanner.nextLine();
+        boolean encontrado = false;
 
-        for (Conductor conductor : conductores) {
+        for (Conductor conductor : listaConductores) {
             if(rutBucar == conductor.getRut()){
+                encontrado = true;
                 System.out.println("Nombre: " + conductor.getNombre());
                 System.out.println("Apellido: " + conductor.getApellido());
                 System.out.println("RUT: " + conductor.getRut());
                 }
         }
+        if (!encontrado) {
+            System.out.println("No se encontró ningún Conductor ingresado.");
+        }
         System.out.println("Operación realizada exitosamente.");
     }
 
     //4.- MODIFICAR ACTUALIZAR
-    public void actualizarModificarConductor(String nuevoNombre, String nuevoApellido, String nuevoRut){
+    public void actualizarModificarConductor(){
 
         int opcion;
-        Scanner Entrada=new Scanner(System.in);
+        Scanner scanner=new Scanner(System.in);
 
-        System.out.println("¿Que datos del conductor desea modificar?");
-        System.out.println("1.- Nombre.");
-        System.out.println("2.- Apellido.");
-        System.out.println("3.- Rut.");
-        System.out.println("0.- Finalizar.");
+        System.out.println("Ingrese el rut del conductor a modificar: ");
+        String rut = scanner.nextLine();
+        boolean encontrado = false;
 
-        opcion=Entrada.nextInt();
-        do{
-            switch(opcion){
-                case 1:
-                    System.out.println("Ingrese el nuevo nombre:");
-                    conductor.setNombre(nuevoNombre);
-                break;
+        for(Conductor conductor : listaConductores){
+            if(conductor.getRut().equals(rut)){
+                encontrado = true;
+                System.out.println("¿Que datos del conductor desea modificar?");
+                System.out.println("1.- Nombre.");
+                System.out.println("2.- Apellido.");
+                System.out.println("3.- Rut.");
+                System.out.println("0.- Finalizar.");
 
-                case 2:
-                    System.out.println("Ingrese el nuevo apellido:");
-                    conductor.setApellido(nuevoApellido);
+                opcion=scanner.nextInt();
+                scanner.nextLine();
+                switch(opcion){
+                    case 0:
 
-                break;
+                    break;
 
-                case 3:
-                    System.out.println("Ingrese el nuevo rut:");
-                    conductor.setRut(nuevoRut);
-                break;
-
-                default: 
-                    System.out.println("La opción que ingreso no es valida");
-                break;
+                    case 1:
+                        System.out.println("Ingrese el nuevo nombre:");
+                        String nombreConductor = scanner.nextLine();
+                        scanner.nextLine();
+                        conductor.setNombre(nombreConductor);
+                        System.out.println("Nombre conductor actualizado correctamente");
+                        //conductor.setNombre(nuevoNombre);
+                    break;
+    
+                    case 2:
+                        System.out.println("Ingrese el nuevo apellido:");
+                        String apellidoConductor = scanner.nextLine();
+                        scanner.nextLine();
+                        conductor.setNombre(apellidoConductor);
+                        //conductor.setApellido(nuevoApellido);
+    
+                    break;
+    
+                    case 3:
+                        System.out.println("Ingrese el nuevo rut:");
+                        String rutConductor = scanner.nextLine();
+                        scanner.nextLine();
+                        conductor.setNombre(rutConductor);
+                        
+                        //conductor.setRut(nuevoRut);
+                    break;
+    
+                    default: 
+                        System.out.println("La opción que ingreso no es valida");
+                    break;
+                }
             }
-        }while(opcion != 0);
-
+        }
+        if (!encontrado) {
+            System.out.println("No se encontró ningún Conductor ingresado.");
+        }
         System.out.println("Operación Finalizada :D .");
     }
     //5.- ELIMINAR
+
+    public static void eliminar() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el RUT del conductor a eliminar: ");
+        String rutEliminar = scanner.nextLine();
+
+        boolean encontrado = false;
+        for (int i = 0; i < listaConductores.size(); i++) {
+            if (listaConductores.get(i).getRut().equals(rutEliminar)) {
+                listaConductores.remove(i);
+                System.out.println("Conductor eliminado exitosamente.");
+                encontrado = true;
+                break;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("No se encontró ningún Conductor con el RUT ingresado.");
+        }
+        System.out.println("Operación Finalizada :D .");
+    }
+
 }
+
+
 
 //--------- comportamientos ---

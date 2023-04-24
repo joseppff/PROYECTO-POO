@@ -17,17 +17,17 @@ public class Recorrido {
     private int numeroRecorrido;
     private int cantParadas;
     private String nombreParadas;
-    private ArrayList<String> listaParadas;
+    private ArrayList<String> paradas;
 
-    public static ArrayList<Recorrido> nuevaListaParadas = new ArrayList<Recorrido>();
+    public static ArrayList<Recorrido> listaParadas = new ArrayList<Recorrido>();
     
 //-------- CONSTRUCTOR --------
 
-    public Recorrido(int numeroRecorrido, int cantParadas, String nombreParadas, ArrayList<String> listaParadas) {
+    public Recorrido(int numeroRecorrido, int cantParadas, String nombreParadas, ArrayList<String> paradas) {
         this.numeroRecorrido = numeroRecorrido;
         this.cantParadas = cantParadas;
         this.nombreParadas = nombreParadas;
-        this.listaParadas = listaParadas;
+        this.paradas = paradas;
     }
     
 //--------- GET        --------
@@ -44,11 +44,10 @@ public class Recorrido {
         return nombreParadas;
     }
 
-    public ArrayList<String> getListaParadas() {
-        return listaParadas;
+    public ArrayList<String> getParadas() {
+        return paradas;
     }
-    
-    //Mutadores
+
     //Mutadores
 
     public void setNumeroRecorrido(int numeroRecorrido) {
@@ -63,7 +62,6 @@ public class Recorrido {
         this.nombreParadas = nombreParadas;
     }   
     
-//--------- FUNCIONES
 //--------- FUNCIONES ---------
 
 //2.- AGREGAR DATO
@@ -90,7 +88,7 @@ public class Recorrido {
         }
         
         Recorrido nuevoRecorrido = new Recorrido(numeroRecorrido, cantParadas, nombreParadas, listaParadas);
-        nuevaListaParadas.add(nuevoRecorrido);
+        listaParadas.add(nuevoRecorrido);
         
         System.out.println("¡Recorrido agregado con éxito!");
     }
@@ -153,7 +151,10 @@ public class Recorrido {
                 }
             }
         }
-
+        if (!encontrado) {
+            System.out.println("No se encontró ningún Recorrido ingresado.");
+        }
+        System.out.println("Operación Finalizada :D .");
     }
 
 //5.- Eliminar
@@ -171,10 +172,10 @@ public class Recorrido {
             }
         }
         
-        if (encontrado) {
-            System.out.println("El recorrido con patente " + patente + " ha sido eliminado.");
-        } else {
+        if (!encontrado) {
             System.out.println("No se encontró ningún recorrido con patente " + patente + ".");
         }
+        
+        System.out.println("Operación Finalizada :D .");
     }
 }

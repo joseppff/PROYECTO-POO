@@ -76,6 +76,7 @@ public class Buses {
         Buses bus = new Buses(numeroRecorrido, patenteBus, rutConductorAsociado);
         listaBuses.add(bus);
         System.out.println("Bus agregado exitosamente.");
+        System.out.println("Operación Finalizada :D .");
     }
 
 //3.- IMPRIMIR DATOS
@@ -90,12 +91,14 @@ public static void imprimirBus() {
             System.out.println("RUT del conductor asociado: " + bus.getRutConductorAsociado());
             System.out.println("Patente del bus: " + bus.getPatenteBus());
             encontrado = true;
+            System.out.println("Operación Finalizada :D .");
             break;
         }
     }
     if (!encontrado) {
         System.out.println("No se encontró un bus con la patente ingresada.");
     }
+    System.out.println("Operación realizada exitosamente.");
 }
 
 
@@ -113,11 +116,14 @@ public void actualizarModificarBuses() {
             System.out.println("1.- Número de recorrido");
             System.out.println("2.- RUT del conductor asociado");
             System.out.println("3.- Patente del bus");
+            System.out.println("0.- Finalizar.");
 
             opcion = scanner.nextInt();
             scanner.nextLine();
 
             switch (opcion) {
+                case 0:
+                    break;
                 case 1:
                     System.out.println("Ingrese el nuevo número de recorrido:");
                     int numeroRecorrido = scanner.nextInt();
@@ -147,28 +153,29 @@ public void actualizarModificarBuses() {
             return;
         }
     }
-    System.out.println("No se encontró ningún bus con la patente ingresada");
+    System.out.println("Operación Finalizada :D .");
 }    
 
 //System.out.println("5.- Eliminar");
-public static void eliminarBus() {
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Ingrese la patente del bus que desea eliminar: ");
-    String patente = scanner.nextLine();
-    boolean encontrado = false;
-    
-    for (int i = 0; i < listaBuses.size(); i++) {
-        Buses bus = listaBuses.get(i);
-        if (bus.getPatenteBus().equals(patente)) {
-            listaBuses.remove(i);
-            System.out.println("Se ha eliminado el bus con patente " + patente + " de la lista de buses.");
-            encontrado = true;
-            break;
+    public static void eliminarBus() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese la patente del bus que desea eliminar: ");
+        String patente = scanner.nextLine();
+        boolean encontrado = false;
+        
+        for (int i = 0; i < listaBuses.size(); i++) {
+            Buses bus = listaBuses.get(i);
+            if (bus.getPatenteBus().equals(patente)) {
+                listaBuses.remove(i);
+                System.out.println("Se ha eliminado el bus con patente " + patente + " de la lista de buses.");
+                encontrado = true;
+                break;
+            }
         }
+        if (!encontrado) {
+            System.out.println("No se encontró un bus con la patente ingresada.");
+        }
+    System.out.println("Operación Finalizada :D .");
     }
-    if (!encontrado) {
-        System.out.println("No se encontró un bus con la patente ingresada.");
-    }
-}
 
 }
