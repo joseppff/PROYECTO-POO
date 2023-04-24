@@ -36,8 +36,8 @@ public class Buses {
         return rutConductorAsociado;
     }
 
-    public String getPatenteBus() {
-        return patenteBus;
+    public String getPatente() {
+        return PatenteMicro;
     }
 
 //--------- SET        --------

@@ -30,15 +30,15 @@ public class Conductor {
     //--------- GET        --------
 
     public String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
     public String getApellido() {
-        return apellido;
+        return Apellido;
     }
 
-    public String getRut() {
-        return rut;
+    public int getRUT() {
+        return RUT;
     }
 
     //--------- SET        --------
@@ -46,12 +46,17 @@ public class Conductor {
         this.nombre = nombre;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setRUT(int RUT) {
+        this.RUT = RUT;
     }
 
-    public void setRut(String rut) {
-        this.rut = rut;
+    //imprimir
+
+    public void imprimirDatos() {
+        System.out.println("ID del conductor: " + this.idConductor);
+        System.out.println("Nombre: " + this.Nombre);
+        System.out.println("Apellido: " + this.Apellido);
+        System.out.println("RUT: " + this.RUT);
     }
     
 //--------- comportamientos ---
