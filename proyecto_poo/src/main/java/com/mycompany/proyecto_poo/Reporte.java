@@ -30,11 +30,9 @@ public class Reporte {
         
             String[] nextRecord;
             
-            // we are going to read data line by line
             int i=0;
             while ((nextRecord = reader.readNext()) != null) {
                 
-                //System.out.println(nextRecord[4]);
                 if(i>0)LBuses.add(new Buses(Integer.parseInt(nextRecord[0]),nextRecord[1],nextRecord[2]));
                   
                 
