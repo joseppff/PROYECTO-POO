@@ -15,7 +15,7 @@ public class Central implements Crud{
     private ArrayList<Recorrido> listaRecorridos = new ArrayList<Recorrido>();
     
     //--------- FUNCIONES ---------
-//2.- AGREGAR DATO
+//2.- AGREGAR DATO RECORRIDO
     @Override
     public void agregar(){
             
@@ -27,7 +27,6 @@ public class Central implements Crud{
         
         System.out.printf("2.- Cantidad de paradas.");
         int cantParadas = Scanner.nextInt();
-        Scanner.nextLine(); // Limpiar buffer
         
         System.out.println("Ingrese los nombres de las paradas :");
         ArrayList<String> nuevaListaParadas = new ArrayList<String>();
@@ -41,7 +40,7 @@ public class Central implements Crud{
         
         System.out.println("Operación Finalizada :D .");
     }
-//3.- IMPRIMIR DATOS
+//3.- IMPRIMIR DATOS RECORRIDO
     @Override
     public void imprimir() {
         for (int i = 0; i <= listaRecorridos.size(); i++) {
@@ -52,6 +51,7 @@ public class Central implements Crud{
         System.out.println("Operación Finalizada :D .");
     }
 
+//4.- MODIFICAR/ACTUALIZAR DATO BUSES
     @Override
     public void modificar() {
         Scanner scanner = new Scanner(System.in);
@@ -90,6 +90,7 @@ public class Central implements Crud{
         System.out.println("Operación Finalizada :D .");
     }
 
+//5.- ELIMINAR DATO BUSES
     @Override
     public void eliminar() {
         Scanner scanner = new Scanner(System.in);

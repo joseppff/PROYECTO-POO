@@ -4,7 +4,6 @@
  */
 package com.mycompany.proyecto_poo;
 
-import static com.mycompany.proyecto_poo.Buses.listaBuses;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,17 +17,17 @@ public class Recorrido implements Crud{
     private int numeroRecorrido;
     private int cantParadas;
     private ArrayList<String> listaParadas = new ArrayList<String>();
-    private ArrayList<Buses> listaBuses = ArrayList<Buses>();
+    private ArrayList<Buses> listaBuses = new ArrayList<Buses>();
     
 //-------- CONSTRUCTOR --------/
 
-    public Recorrido(int numeroRecorrido, int cantParadas) {
+    public Recorrido(int numeroRecorrido, int cantParadas, ArrayList listaParadas) {
         this.numeroRecorrido = numeroRecorrido;
         this.cantParadas = cantParadas;
+        this.listaParadas = listaParadas;
     }
 
-
-//--------- GET        --------
+//--------- GET y SET --------
 
     public int getNumeroRecorrido() {
         return numeroRecorrido;
@@ -42,6 +41,10 @@ public class Recorrido implements Crud{
         return listaParadas;
     }
 
+    public ArrayList<Buses> getListaBuses() {
+        return listaBuses;
+    }
+
     public void setNumeroRecorrido(int numeroRecorrido) {
         this.numeroRecorrido = numeroRecorrido;
     }
@@ -52,6 +55,10 @@ public class Recorrido implements Crud{
 
     public void setListaParadas(ArrayList<String> listaParadas) {
         this.listaParadas = listaParadas;
+    }
+
+    public void setListaBuses(ArrayList<Buses> listaBuses) {
+        this.listaBuses = listaBuses;
     }
 
 //2.- IMPRIMIR DATOS BUSES
@@ -97,6 +104,7 @@ public class Recorrido implements Crud{
         System.out.println("Operación Finalizada :D .");    
     }
 
+    //5.- ELIMINAR DATO BUS
     @Override
     public void eliminar() {
         Scanner scanner = new Scanner(System.in);

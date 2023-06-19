@@ -20,11 +20,9 @@ public class main{
     public static void main(String[] args) throws FileNotFoundException, CsvValidationException{
         System.out.println("Bienvenido a nuestro programa.");
         System.out.println("Seleccione que operación desea realizar:");
-        int opcion, subOpcion;
         
         Scanner scanner =new Scanner(System.in);
         
-        do{
             System.out.println("0.- Salir del programa.");
             System.out.println("1.- Leer datos de un archivo txt.");
             System.out.println("2.- Agregar Datos.");
@@ -32,9 +30,13 @@ public class main{
             System.out.println("4.- Actualizar/Modificar Datos");
             System.out.println("5.- Eliminar");
             System.out.println("6.- Leer datos de un archivo excel.");
-
-            // scanf
-            opcion=scanner.nextInt();
+            int opcion=scanner.nextInt();
+            
+            System.out.println("Seleccione que tipo dato:");
+            System.out.println("1.- Recorrido.");
+            System.out.println("2.- Buses.");
+            System.out.println("3.- Conductor.");
+            int subOpcion=scanner.nextInt();
             
             switch(opcion){
                 case 0:
@@ -46,94 +48,42 @@ public class main{
                     break;
                 // AGREGAR
                 case 2:
-                    System.out.println("Seleccione que dato desea AGREGAR:");
-                    System.out.println("1.- Recorrido.");
-                    System.out.println("2.- Buses.");
-                    System.out.println("3.- Conductor.");
-                    subOpcion=scanner.nextInt();
                     switch(subOpcion){
-                        case 1:
-                            Recorrido.agregar();
-                        break;
-                        case 2:
-                            Buses.agregar();
-                        break;
-                        case 3:
-                            Conductor.agregar();
-                        break;
-                        default: 
-                        System.out.println("La opción que ingreso no es valida");
-                        break;
+                        case 1 -> Central.agregar();
+                        case 2 -> Recorrido.agregar();
+                        case 3 -> Buses.agregar();
+                        default -> System.out.println("La opción que ingreso no es valida");
                         }
                     System.out.println("Operacion realizada con exito.");
+
                 
                 //IMPRIMIR
                 case 3: 
-                    System.out.println("Seleccione que dato desea IMPRIMIR:");
-                    System.out.println("1.- Recorrido.");
-                    System.out.println("2.- Buses.");
-                    System.out.println("3.- Conductor.");
-                    subOpcion=scanner.nextInt();
-
                     switch(subOpcion){
-                        case 1:
-                            Recorrido.imprimirRecorrido();
-                        break;
-                        case 2:
-                            Buses.imprimirBuses();
-                        break;
-                        case 3:
-                            Conductor.imprimirConductor();
-                        break;
-                        default: 
-                            System.out.println("La opción que ingreso no es valida");
-                        break;
+                        case 1 -> Central.imprimir();
+                        case 2 -> Recorrido.imprimir();
+                        case 3 -> Buses.imprimir();
+                        default -> System.out.println("La opción que ingreso no es valida");
                 }
+
                 //MODIFICAR
                 case 4: 
-                    System.out.println("Seleccione que dato desea MODIFICAR:");
-                    System.out.println("1.- Recorrido.");
-                    System.out.println("2.- Buses.");
-                    System.out.println("3.- Conductor.");
-                    subOpcion=scanner.nextInt();
-                    
                     switch(subOpcion){
-                        case 1:
-                            Recorrido.modificarRecorrido();
-                        break;
-                        case 2:
-                            Buses.modificarBuses();
-                        break;
-                        case 3:
-                            Conductor.modificarConductor();
-                        break;
-                        default: 
-                            System.out.println("La opción que ingreso no es valida");
-                        break;
+                        case 1 -> Central.modificar();
+                        case 2 -> Recorrido.modificar();
+                        case 3 -> Buses.modificar();
+                        default -> System.out.println("La opción que ingreso no es valida");
                 }
+
                 //ELIMINAR
-                case 5: 
-                    System.out.println("Seleccione que dato desea ELIMINAR:");
-                    System.out.println("1.- Recorrido.");
-                    System.out.println("2.- Buses.");
-                    System.out.println("3.- Conductor.");
-                    subOpcion=scanner.nextInt();
-                    
+                case 5:
                     switch(subOpcion){
-                        case 1:
-                            Recorrido.eliminarRecorrido();
-                        break;
-                        case 2:
-                            Buses.eliminarBuses();
-                        break;
-                        case 3:
-                            Conductor.eliminarConductor();
-                        break;
-                        default: 
-                            System.out.println("La opción que ingreso no es valida");
-                        break;
+                        case 1 -> Central.eliminar();
+                        case 2 -> Recorrido.eliminar();
+                        case 3 -> Buses.eliminar();
+                        default -> System.out.println("La opción que ingreso no es valida");
                     }
-                
+
                 case 6:
                         leerBusesExcel();
                         System.out.println("Operacion realizada con exito.");
@@ -142,8 +92,6 @@ public class main{
                        System.out.println("La opción que ingreso no es valida");
                     break;
             }
-            
-        }while(opcion != 0);
     }
 
     public static void InsertarDatosTxt() throws FileNotFoundException{
