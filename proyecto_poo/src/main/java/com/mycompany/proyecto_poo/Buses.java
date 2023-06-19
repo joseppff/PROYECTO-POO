@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author jose
  */
 
-public class Buses extends horaDispo implements Crud{
+public class Buses extends BusFechaDisp implements Crud{
     // atributos de la micro
     private String patenteBus;
     private ArrayList<Conductor> listaConductores = new ArrayList<>();
@@ -20,6 +20,8 @@ public class Buses extends horaDispo implements Crud{
         super(horaInicio, horaTermino);
         this.patenteBus = patenteBus;
     }
+
+
 
     //--------- GET y SET --------
     
@@ -61,12 +63,9 @@ public class Buses extends horaDispo implements Crud{
         String nuevoApellido = Scanner.nextLine();
         System.out.print("3.- Rut del conductor: ");
         String nuevoRut = Scanner.nextLine();
-        System.out.print("4.- Hora de inicio: ");
-        int nuevoInicio = Scanner.nextInt();
-        System.out.print("5.- Hora de final: ");
-        int nuevoFinal = Scanner.nextInt();
+
         
-        Conductor nuevoConductor = new Conductor(nuevoNombre, nuevoApellido, nuevoRut, nuevoInicio, nuevoFinal);
+        Conductor nuevoConductor = new Conductor(nuevoNombre, nuevoApellido, nuevoRut);
         listaConductores.add(nuevoConductor);
         System.out.println("Operación Finalizada :D .");
     }

@@ -4,7 +4,7 @@
  */
 package com.mycompany.proyecto_poo.InicioSesion;
 import Controladores.*;
-import com.mycompany.proyecto_poo.*;
+import com.mycompany.proyecto_poo.Conductor;
 import javax.swing.*;
 import java.sql.*;
 /**
@@ -137,14 +137,15 @@ public class Sesion extends javax.swing.JFrame {
     private void guardarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarDatosActionPerformed
         // TODO add your handling code here:
         ConductorG conductor=new ConductorG();
-        Conductor ConsultaCliente=new Conductor();
+        Conductor ConsultaConductor=new Conductor();
         
-        ConsultaCliente.setNombre(txtNombre.getText());
-        ConsultaCliente.setApellido(txtApellido.getText());
-        ConsultaCliente.setRut(txtRut.getText());
-
-        JOptionPane.showMessageDialog(null,"Datos Creados!");
-        
+        ConsultaConductor.setNombre(txtNombre.getText());
+        ConsultaConductor.setApellido(txtApellido.getText());
+        ConsultaConductor.setRut(txtRut.getText());
+        if(conductor.Crear(link,ConsultaConductor)){
+            this.setVisible(false);
+            JOptionPane.showMessageDialog(null,"Datos Creados!");
+        }
         
     }//GEN-LAST:event_guardarDatosActionPerformed
 

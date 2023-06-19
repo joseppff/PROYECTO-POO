@@ -2,17 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
+/**
+ *
+ * @author diego
+ */
 package com.mycompany.proyecto_poo;
 
 /**
  *
  * @author pete-
  */
-public abstract class horaDispo {
+public abstract class BusFechaDisp {
     private int horaInicio;
     private int horaTermino;
 
-    public horaDispo(int horaInicio, int horaTermino) {
+    public BusFechaDisp(int horaInicio, int horaTermino) {
         this.horaInicio = horaInicio;
         this.horaTermino = horaTermino;
     }

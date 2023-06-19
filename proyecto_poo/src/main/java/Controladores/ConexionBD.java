@@ -25,7 +25,7 @@ public class ConexionBD {
     private Connection link ;
     
     public ConexionBD(){
-        this.db="conductores";
+        this.db="EmpresaBus";
         this.url = "jdbc:mysql://localhost/" + db;
         this.user="root";
         this.pass="";

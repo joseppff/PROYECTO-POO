@@ -5,7 +5,6 @@
 package Controladores;
 import com.mycompany.proyecto_poo.CrudBD;
 import com.mycompany.proyecto_poo.Conductor;
-import com.mycompany.proyecto_poo.InicioSesion.*;
 /**
  *
  * @author diego
@@ -71,7 +70,7 @@ public class ConductorG implements CrudBD {
         
         try{
             Statement s = link.createStatement();
-            query="insert into Conductores(nombres,apellido,rut)values('"+conductor.getNombre()+"','"+conductor.getApellido()+"','"+conductor.getRut()+"')";
+            query="insert into Conductores(Nombre,Apellido,Rut)values('"+conductor.getNombre()+"','"+conductor.getApellido()+"','"+conductor.getRut()+"')";
             s.executeUpdate(query);
             return true;
             
