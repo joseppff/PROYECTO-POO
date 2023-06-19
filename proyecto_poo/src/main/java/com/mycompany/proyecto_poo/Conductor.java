@@ -8,7 +8,7 @@ package com.mycompany.proyecto_poo;
  *
  * @author diego
  */
-public class Conductor {
+public class Conductor extends horaDispo{
     
     private String nombre;
     private String apellido;
@@ -16,7 +16,8 @@ public class Conductor {
 
     //-------- CONSTRUCTOR --------
 
-    public Conductor(String nombre, String apellido, String rut) {
+    public Conductor(String nombre, String apellido, String rut,  int horaInicio, int horaTermino) {
+        super(horaInicio, horaTermino);
         this.nombre = nombre;
         this.apellido = apellido;
         this.rut = rut;

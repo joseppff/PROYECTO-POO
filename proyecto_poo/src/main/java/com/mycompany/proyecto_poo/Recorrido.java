@@ -70,8 +70,12 @@ public class Recorrido implements Crud{
         System.out.printf("Ingrese Nuevos datos:");
         System.out.print("1.- Patente del bus.");
         String patenteBus = scanner.nextLine();
+        System.out.print("2.- Hora de inicio: ");
+        int nuevoInicio = scanner.nextInt();
+        System.out.print("3.- Hora de final: ");
+        int nuevoFinal = scanner.nextInt();
         
-        Buses nuevoBus = new Buses(patenteBus);
+        Buses nuevoBus = new Buses(patenteBus, nuevoInicio, nuevoFinal);
         listaBuses.add(nuevoBus);
         System.out.println("Operación Finalizada :D .");
     }

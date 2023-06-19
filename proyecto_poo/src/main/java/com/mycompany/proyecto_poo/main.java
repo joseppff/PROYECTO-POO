@@ -37,7 +37,6 @@ public class main{
             System.out.println("2.- Buses.");
             System.out.println("3.- Conductor.");
             int subOpcion=scanner.nextInt();
-            
             switch(opcion){
                 case 0:
                     break;
@@ -49,10 +48,21 @@ public class main{
                 // AGREGAR
                 case 2:
                     switch(subOpcion){
-                        case 1 -> Central.agregar();
-                        case 2 -> Recorrido.agregar();
-                        case 3 -> Buses.agregar();
-                        default -> System.out.println("La opción que ingreso no es valida");
+                        case 1 :
+                            Crud funcion = new Central();
+                            funcion.agregar();
+                            break;
+                        case 2:
+                            Crud funcion = new Recorrido();
+                            funcion.agregar();
+                            break;
+                        case 3:
+                            Crud funcion = new Buses();
+                            funcion.agregar();
+                            break;
+                        default:
+                            System.out.println("La opción que ingreso no es valida");
+                            break;
                         }
                     System.out.println("Operacion realizada con exito.");
 
@@ -60,28 +70,61 @@ public class main{
                 //IMPRIMIR
                 case 3: 
                     switch(subOpcion){
-                        case 1 -> Central.imprimir();
-                        case 2 -> Recorrido.imprimir();
-                        case 3 -> Buses.imprimir();
-                        default -> System.out.println("La opción que ingreso no es valida");
-                }
+                        case 1:
+                            Crud funcion = new Central();
+                            funcion.imprimir();
+                            break;
+                        case 2:
+                            Crud funcion = new Recorrido();
+                            funcion.imprimir();
+                            break;
+                        case 3:
+                            Crud funcion = new Buses();
+                            funcion.imprimir();
+                            break;
+                        default:
+                            System.out.println("La opción que ingreso no es valida");
+                            break;
+                    }
 
                 //MODIFICAR
                 case 4: 
                     switch(subOpcion){
-                        case 1 -> Central.modificar();
-                        case 2 -> Recorrido.modificar();
-                        case 3 -> Buses.modificar();
-                        default -> System.out.println("La opción que ingreso no es valida");
-                }
+                        case 1:
+                            Crud funcion = new Central();
+                            funcion.modificar();
+                            break;
+                        case 2:
+                            Crud funcion = new Recorrido();
+                            funcion.modificar();
+                            break;
+                        case 3:
+                            Crud funcion = new Buses();
+                            funcion.modificar();
+                            break;
+                        default:
+                            System.out.println("La opción que ingreso no es valida");
+                            break;
+                    }
 
                 //ELIMINAR
                 case 5:
                     switch(subOpcion){
-                        case 1 -> Central.eliminar();
-                        case 2 -> Recorrido.eliminar();
-                        case 3 -> Buses.eliminar();
-                        default -> System.out.println("La opción que ingreso no es valida");
+                        case 1:
+                            Crud funcion = new Central();
+                            funcion.eliminar();
+                        break;
+                        case 2:
+                            Crud funcion = new Recorrido();
+                            funcion.eliminar();
+                        break;
+                        case 3:
+                            Crud funcion = new Buses();
+                            funcion.eliminar();
+                        break;
+                        default:
+                            System.out.println("La opción que ingreso no es valida");
+                        break;
                     }
 
                 case 6:

@@ -9,14 +9,15 @@ import java.util.Scanner;
  * @author jose
  */
 
-public class Buses implements Crud{
+public class Buses extends horaDispo implements Crud{
     // atributos de la micro
     private String patenteBus;
     private ArrayList<Conductor> listaConductores = new ArrayList<>();
     
 //-------- CONSTRUCTOR --------
 
-    public Buses(String patenteBus) {
+    public Buses(String patenteBus, int horaInicio, int horaTermino) {
+        super(horaInicio, horaTermino);
         this.patenteBus = patenteBus;
     }
 
@@ -60,8 +61,12 @@ public class Buses implements Crud{
         String nuevoApellido = Scanner.nextLine();
         System.out.print("3.- Rut del conductor: ");
         String nuevoRut = Scanner.nextLine();
+        System.out.print("4.- Hora de inicio: ");
+        int nuevoInicio = Scanner.nextInt();
+        System.out.print("5.- Hora de final: ");
+        int nuevoFinal = Scanner.nextInt();
         
-        Conductor nuevoConductor = new Conductor(nuevoNombre, nuevoApellido, nuevoRut);
+        Conductor nuevoConductor = new Conductor(nuevoNombre, nuevoApellido, nuevoRut, nuevoInicio, nuevoFinal);
         listaConductores.add(nuevoConductor);
         System.out.println("Operación Finalizada :D .");
     }
