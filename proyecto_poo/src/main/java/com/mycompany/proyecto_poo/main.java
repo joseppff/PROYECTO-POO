@@ -15,7 +15,7 @@ import com.opencsv.exceptions.CsvValidationException;
  *
  * @author jose
  */
-public class main {
+public class main{
 
     public static void main(String[] args) throws FileNotFoundException, CsvValidationException{
         System.out.println("Bienvenido a nuestro programa.");
@@ -53,13 +53,13 @@ public class main {
                     subOpcion=scanner.nextInt();
                     switch(subOpcion){
                         case 1:
-                            Recorrido.agregarRecorrido();
+                            Recorrido.agregar();
                         break;
                         case 2:
-                            Buses.agregarBuses();
+                            Buses.agregar();
                         break;
                         case 3:
-                            Conductor.agregarConductor();
+                            Conductor.agregar();
                         break;
                         default: 
                         System.out.println("La opción que ingreso no es valida");

@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author jose
  */
 
-public class Buses {
+public class Buses implements Crud{
     // atributos de la micro
     private int numeroRecorrido;
     private String rutConductorAsociado;
@@ -60,122 +60,27 @@ public class Buses {
 //--------- FUNCIONES ---------
 
 //2.- AGREGAR DATO
-    public static void agregarBuses() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.printf("Ingrese Nuevos datos:");
+    @Override
+    public void agregar() {
         
-        System.out.print("1.- Número de recorrido.");
-        int numeroRecorrido = scanner.nextInt();
-        scanner.nextLine(); // Limpiar buffer
-        
-        System.out.print("2.- Patente del bus.");
-        String patenteBus = scanner.nextLine();
-        System.out.print("3.- Rut del conductor asociado al bus.");
-        String rutConductorAsociado = scanner.nextLine();
-        
-        Buses bus = new Buses(numeroRecorrido, patenteBus, rutConductorAsociado);
-        listaBuses.add(bus);
-        System.out.println("Bus agregado exitosamente.");
-        System.out.println("Operación Finalizada :D .");
     }
 
 //3.- IMPRIMIR DATOS
-    public static void imprimirBuses() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese la patente del bus que desea imprimir: ");
-        String patente = scanner.nextLine();
-        boolean encontrado = false;
-        for (Buses bus : listaBuses) {
-            if (bus.getPatenteBus().equals(patente)) {
-                System.out.println("Número de recorrido: " + bus.getNumeroRecorrido());
-                System.out.println("RUT del conductor asociado: " + bus.getRutConductorAsociado());
-                System.out.println("Patente del bus: " + bus.getPatenteBus());
-                encontrado = true;
-                System.out.println("Operación Finalizada :D .");
-                break;
-            }
-        }
-        if (!encontrado) {
-            System.out.println("No se encontró un bus con la patente ingresada.");
-        }
-        System.out.println("Operación realizada exitosamente.");
+    @Override
+    public void imprimir() {
+        
     }
 
 
 //4.- MODIFICAR/ACTUALIZAR DATO
-    public static void modificarBuses() {
-        int opcion;
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Ingrese la patente del bus a modificar: ");
-        String patente = scanner.nextLine();
-
-        for (Buses bus : listaBuses) {
-            if (bus.getPatenteBus().equals(patente)) {
-                System.out.println("¿Qué dato del bus desea modificar?");
-                System.out.println("1.- Número de recorrido");
-                System.out.println("2.- RUT del conductor asociado");
-                System.out.println("3.- Patente del bus");
-                System.out.println("0.- Finalizar.");
-
-                opcion = scanner.nextInt();
-                scanner.nextLine();
-
-                switch (opcion) {
-                    case 0:
-                        break;
-                    case 1:
-                        System.out.println("Ingrese el nuevo número de recorrido:");
-                        int numeroRecorrido = scanner.nextInt();
-                        scanner.nextLine();
-                        bus.setNumeroRecorrido(numeroRecorrido);
-                        System.out.println("Número de recorrido actualizado correctamente");
-                        break;
-
-                    case 2:
-                        System.out.println("Ingrese el nuevo RUT del conductor asociado:");
-                        String rutConductor = scanner.nextLine();
-                        bus.setRutConductorAsociado(rutConductor);
-                        System.out.println("RUT del conductor asociado actualizado correctamente");
-                        break;
-
-                    case 3:
-                        System.out.println("Ingrese la nueva patente del bus:");
-                        String patenteNueva = scanner.nextLine();
-                        bus.setPatenteBus(patenteNueva);
-                        System.out.println("Patente del bus actualizada correctamente");
-                        break;
-
-                    default:
-                        System.out.println("La opción ingresada no es válida");
-                        break;
-                }
-                return;
-            }
-        }
-        System.out.println("Operación Finalizada :D .");
+    @Override
+    public void modificar() {
+        
     }    
 
 //System.out.println("5.- Eliminar");
-    public static void eliminarBuses() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese la patente del bus que desea eliminar: ");
-        String patente = scanner.nextLine();
-        boolean encontrado = false;
+    @Override
+    public void eliminar() {
         
-        for (int i = 0; i < listaBuses.size(); i++) {
-            Buses bus = listaBuses.get(i);
-            if (bus.getPatenteBus().equals(patente)) {
-                listaBuses.remove(i);
-                System.out.println("Se ha eliminado el bus con patente " + patente + " de la lista de buses.");
-                encontrado = true;
-                break;
-            }
-        }
-        if (!encontrado) {
-            System.out.println("No se encontró un bus con la patente ingresada.");
-        }
-    System.out.println("Operación Finalizada :D .");
-    }
 
 }

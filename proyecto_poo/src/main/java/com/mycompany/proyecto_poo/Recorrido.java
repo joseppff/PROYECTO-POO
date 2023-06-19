@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyecto_poo;
 
+import static com.mycompany.proyecto_poo.Buses.listaBuses;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,23 +14,20 @@ import java.util.Scanner;
  */
  
 
-public class Recorrido {
+public class Recorrido implements Crud{
     private int numeroRecorrido;
     private int cantParadas;
-    private String nombreParadas;
-    private ArrayList<String> paradas;
-
-    public static ArrayList<Recorrido> listaParadas = new ArrayList<Recorrido>();
+    private ArrayList<String> listaParadas = new ArrayList<String>();
+    private ArrayList<Buses> listaBuses = ArrayList<Buses>();
     
-//-------- CONSTRUCTOR --------
+//-------- CONSTRUCTOR --------/
 
-    public Recorrido(int numeroRecorrido, int cantParadas, String nombreParadas, ArrayList<String> paradas) {
+    public Recorrido(int numeroRecorrido, int cantParadas) {
         this.numeroRecorrido = numeroRecorrido;
         this.cantParadas = cantParadas;
-        this.nombreParadas = nombreParadas;
-        this.paradas = paradas;
     }
-    
+
+
 //--------- GET        --------
 
     public int getNumeroRecorrido() {
@@ -40,15 +38,9 @@ public class Recorrido {
         return cantParadas;
     }
 
-    public String getNombreParadas() {
-        return nombreParadas;
+    public ArrayList<String> getListaParadas() {
+        return listaParadas;
     }
-
-    public ArrayList<String> getParadas() {
-        return paradas;
-    }
-
-    //Mutadores
 
     public void setNumeroRecorrido(int numeroRecorrido) {
         this.numeroRecorrido = numeroRecorrido;
@@ -58,124 +50,70 @@ public class Recorrido {
         this.cantParadas = cantParadas;
     }
 
-    public void setNombreParadas(String nombreParadas) {
-        this.nombreParadas = nombreParadas;
-    }   
-    
-//--------- FUNCIONES ---------
+    public void setListaParadas(ArrayList<String> listaParadas) {
+        this.listaParadas = listaParadas;
+    }
 
-//2.- AGREGAR DATO
-    public static void agregarRecorrido(){
-            
-        Scanner Scanner = new Scanner(System.in);
+//2.- IMPRIMIR DATOS BUSES
+    @Override
+    public void agregar() {
+        Scanner scanner = new Scanner(System.in);
+        
         System.out.printf("Ingrese Nuevos datos:");
+        System.out.print("1.- Patente del bus.");
+        String patenteBus = scanner.nextLine();
         
-        System.out.printf("1.- Número de recorrido.");
-        int numeroRecorrido = Scanner.nextInt();
-        
-        System.out.printf("2.- Cantidad de paradas.");
-        int cantParadas = Scanner.nextInt();
-        Scanner.nextLine(); // Limpiar buffer
-        
-        System.out.println("Ingrese el nombre de las paradas:");
-        String nombreParadas = Scanner.nextLine();
-        
-        ArrayList<String> listaParadas = new ArrayList<String>();
-        for (int i = 1; i <= cantParadas; i++) {
-            System.out.println("Ingrese el nombre de la parada " + i + ":");
-            String parada = Scanner.nextLine();
-            listaParadas.add(parada);
-        }
-        
-        Recorrido nuevoRecorrido = new Recorrido(numeroRecorrido, cantParadas, nombreParadas, listaParadas);
-        listaParadas.add(nuevoRecorrido);
-        
-        System.out.println("¡Recorrido agregado con éxito!");
-    }
-
-//3.- IMPRIMIR DATOS
-
-    public static void imprimirRecorrido() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese número de recorrido: ");
-        int numeroRecorrido = scanner.nextInt();
-        boolean encontrado = false;
-
-        for (Recorrido recorrido : listaParadas) {
-            if (recorrido.getNumeroRecorrido() == numeroRecorrido) {
-                encontrado = true;
-                System.out.println("Número de recorrido: " + recorrido.getNumeroRecorrido());
-                System.out.println("Cantidad de paradas: " + recorrido.getCantParadas());
-
-                for (Recorrido paradero : recorrido.getCantParadas()) {
-                    System.out.println("- " + recorrido.nombreParadas);
-                }
-                break;
-            }
-        }
-        if (!encontrado) {
-            System.out.println("No se encontró ningún recorrido con ese número.");
-        }
-    }
-
-//4.- Actualizar/Modificar Datos
-    public static void modificarRecorrido() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese número de recorrido: ");
-        int numeroRecorrido = scanner.nextInt();
-        boolean encontrado = false;
-
-        for (Recorrido recorrido : listaParadas) {
-            if (recorrido.getNumeroRecorrido() == numeroRecorrido) {
-                encontrado = true;
-                System.out.println("¿Qué dato desea modificar?");
-                System.out.println("1. Cantidad de paradas");
-                System.out.println("2. Nombre de paradas");
-
-                int opcion = scanner.nextInt();
-                scanner.nextLine(); // limpiar buffer
-                switch(opcion) {
-                    case 1:
-                        System.out.println("Ingrese nueva cantidad de paradas:");
-                        int nuevaCantidad = scanner.nextInt();
-                        recorrido.setCantParadas(nuevaCantidad);
-                        break;
-                    case 2:
-                        System.out.println("Ingrese nuevo nombre de paradas:");
-                        String nuevoNombre = scanner.nextLine();
-                        recorrido.setNombreParadas(nuevoNombre);
-                        break;
-                    default: 
-                        System.out.println("La opción que ingreso no es valida");
-                    break;         
-                }
-            }
-        }
-        if (!encontrado) {
-            System.out.println("No se encontró ningún Recorrido ingresado.");
-        }
+        Buses nuevoBus = new Buses(patenteBus);
+        listaBuses.add(nuevoBus);
         System.out.println("Operación Finalizada :D .");
     }
 
-//5.- Eliminar
-    public static void eliminarRecorrido() {
+//3.- IMPRIMIR DATOS BUSES
+    @Override
+    public void imprimir() {
+        for (int i = 0; i <= listaBuses.size(); i++) {
+            System.out.println("Patente del bus: " + listaBuses.get(i).getPatenteBus());
+        }
+        System.out.println("Operación realizada exitosamente.");
+    }
+
+//4.- MODIFICAR/ACTUALIZAR DATO BUSES
+    @Override
+    public void modificar() {
+        int opcion;
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese el numero de recorrido que desea eliminar: ");
+
+        System.out.println("Ingrese la patente del bus a modificar: ");
+        String moificarPatente = scanner.nextLine();
+
+        for (int i = 0; i <= listaBuses.size(); i++) {
+            if (listaBuses.get(i).getPatenteBus().equals(moificarPatente)) {
+                System.out.println("Ingrese la nueva Patente del bus a modificar:");
+                String patenteNueva = scanner.nextLine();
+                listaBuses.get(i).setPatenteBus(patenteNueva);
+                return;
+            }
+        }
+        System.out.println("Operación Finalizada :D .");    
+    }
+
+    @Override
+    public void eliminar() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese la patente del bus que desea eliminar: ");
         String patente = scanner.nextLine();
         boolean encontrado = false;
         
-        for (Recorrido recorrido : listaParadas) {
-            if (recorrido.getPatenteBus().equals(patente)) {
-                listaParadas.remove(recorrido);
+        for (int i = 0; i < listaBuses.size(); i++) {
+            if (listaBuses.get(i).getPatenteBus().equals(patente)) {
+                listaBuses.remove(i);
                 encontrado = true;
                 break;
             }
         }
-        
         if (!encontrado) {
-            System.out.println("No se encontró ningún recorrido con patente " + patente + ".");
+            System.out.println("No se encontró un bus con la patente ingresada.");
         }
-        
-        System.out.println("Operación Finalizada :D .");
+        System.out.println("Operación Finalizada :D .");   
     }
 }
