@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.proyecto_poo.InicioSesion;
+import Controladores.*;
+import com.mycompany.proyecto_poo.*;
 import javax.swing.*;
 import java.sql.*;
 /**
@@ -120,12 +122,7 @@ public class Sesion extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-        try{
-            PreparedStatement pps = cn.prepareStatement("Insert Into conductoresTabla(nombre_cli,apellido_cli, rut_cli) VALUES (?,?,?)");
-            pps.setString(1, txtcodigo_cli.getText());
-        } catch (SQLException ex){
-            Logger.getLogger();
-        }
+
         
     }//GEN-LAST:event_jTextField1ActionPerformed
 
