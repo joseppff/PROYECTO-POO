@@ -1,5 +1,6 @@
 package com.mycompany.proyecto_poo;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ import java.util.Scanner;
 public class Buses implements Crud{
     // atributos de la micro
     private String patenteBus;
-    private ArrayList<Conductor> listaConductores = new ArrayList<Conductor>();
+    private ArrayList<Conductor> listaConductores = new ArrayList<>();
     
 //-------- CONSTRUCTOR --------
 
@@ -96,29 +97,27 @@ public class Buses implements Crud{
                 
                 int opcion = scanner.nextInt();
                 switch(opcion){
-                    case 1:
+                    case 1 -> {
                         System.out.println("Ingrese el nuevo nombre:");
                         String nombreConductor = scanner.nextLine();
                         listaConductores.get(i).setNombre(nombreConductor);
                         System.out.println("Nombre conductor actualizado correctamente");
                         //conductor.setNombre(nuevoNombre);
-                    break;
+                    }
     
-                    case 2:
+                    case 2 -> {
                         System.out.println("Ingrese el nuevo apellido:");
                         String apellidoConductor = scanner.nextLine();
                         listaConductores.get(i).setNombre(apellidoConductor);
-                    break;
+                    }
     
-                    case 3:
+                    case 3 -> {
                         System.out.println("Ingrese el nuevo rut:");
                         String rutConductor = scanner.nextLine();
                         listaConductores.get(i).setNombre(rutConductor);
-                    break;
+                    }
     
-                    default: 
-                        System.out.println("La opción que ingreso no es valida");
-                    break;
+                    default -> System.out.println("La opción que ingreso no es valida");
                 }
             }
         }
@@ -151,4 +150,9 @@ public class Buses implements Crud{
         }
         System.out.println("Operación Finalizada :D .");
     } 
+
+    @Override
+    public boolean crear(Connection link, Conductor conductor) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

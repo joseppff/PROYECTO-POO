@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyecto_poo;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -111,5 +112,10 @@ public class Central implements Crud{
         }
         
         System.out.println("Operación Finalizada :D .");
+    }
+
+    @Override
+    public boolean crear(Connection link, Conductor conductor) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
