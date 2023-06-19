@@ -17,8 +17,6 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import Modelos.ClienteDB;
-import Modelos.Cliente;
 import java.util.ArrayList;
 
 import java.sql.Connection;
@@ -41,33 +39,30 @@ public class ConductorG implements Crud {
         Conductor conductor=new Conductor();
         try{
             Statement s = link.createStatement();
-            query="select * from Clientes";
+            query="select * from Conductores";
             ResultSet rs=s.executeQuery(query);
             while (rs.next()){
                 
-               cliente.setRut(rs.getString("rut"));
-               cliente.setNombres(rs.getString("nombres"));
-               cliente.setApellidos(rs.getString("apellidos"));
-               cliente.setFechaNacimiento(rs.getString("fechaNacimiento"));
-               cliente.setRegion(rs.getString("region"));
-               cliente.setComuna(rs.getString("comuna"));
+               conductor.setNombre(rs.getString("nombre"));
+               conductor.setApellido(rs.getString("apellido"));
+               conductor.setRut(rs.getString("rut"));
                
-               ListaCliente.add(cliente);
+               ListaConductor.add(conductor);
                 
             }
             
-            return ListaCliente;
+            return ListaConductor;
         }catch (SQLException ex) {
             Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
     
-    public void Actualizar(){
+    public void Actualizardato(){
         
     }
     
-    public void Eliminar(){
+    public void EliminarDato(){
         
     }
     
@@ -75,7 +70,7 @@ public class ConductorG implements Crud {
         
         try{
             Statement s = link.createStatement();
-            query="insert into Conductor(nombres,apellido,rut)values('"+conductor.getNombre()+"','"+conductor.getApellido()+"','"+conductor.getRut()+"')";
+            query="insert into Conductores(nombres,apellido,rut)values('"+conductor.getNombre()+"','"+conductor.getApellido()+"','"+conductor.getRut()+"')";
             s.executeUpdate(query);
             return true;
             

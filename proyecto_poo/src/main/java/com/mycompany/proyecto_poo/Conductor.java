@@ -15,6 +15,10 @@ public class Conductor {
     private String rut;
 
     //-------- CONSTRUCTOR --------
+    
+    public Conductor(){
+        
+    }
 
     public Conductor(String nombre, String apellido, String rut) {
         this.nombre = nombre;
