@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controladores;
-import com.mycompany.proyecto_poo.*;
+import com.mycompany.proyecto_poo.CrudBD;
+import com.mycompany.proyecto_poo.Conductor;
 import com.mycompany.proyecto_poo.InicioSesion.*;
 /**
  *
@@ -31,7 +32,7 @@ import java.util.logging.Logger;
  *
  * @author diego
  */
-public class ConductorG implements Crud {
+public class ConductorG implements CrudBD {
     public String query;
     
     public ArrayList<Conductor> Leer(Connection link){
@@ -65,7 +66,7 @@ public class ConductorG implements Crud {
     public void EliminarDato(){
         
     }
-    
+
     public boolean Crear(Connection link, Conductor conductor){
         
         try{
