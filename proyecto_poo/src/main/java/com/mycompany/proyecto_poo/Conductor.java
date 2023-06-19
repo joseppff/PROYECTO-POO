@@ -15,6 +15,10 @@ public class Conductor extends horaDispo{
     private String rut;
 
     //-------- CONSTRUCTOR --------
+    
+    public Conductor(){
+        
+    }
 
     public Conductor(String nombre, String apellido, String rut,  int horaInicio, int horaTermino) {
         super(horaInicio, horaTermino);

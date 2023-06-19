@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controladores;
-import com.mycompany.proyecto_poo.*;
+import com.mycompany.proyecto_poo.CrudBD;
+import com.mycompany.proyecto_poo.Conductor;
 import com.mycompany.proyecto_poo.InicioSesion.*;
 /**
  *
@@ -17,8 +18,6 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import Modelos.ClienteDB;
-import Modelos.Cliente;
 import java.util.ArrayList;
 
 import java.sql.Connection;
@@ -33,7 +32,7 @@ import java.util.logging.Logger;
  *
  * @author diego
  */
-public class ConductorG implements Crud {
+public class ConductorG implements CrudBD {
     public String query;
     
     public ArrayList<Conductor> Leer(Connection link){
@@ -41,41 +40,38 @@ public class ConductorG implements Crud {
         Conductor conductor=new Conductor();
         try{
             Statement s = link.createStatement();
-            query="select * from Clientes";
+            query="select * from Conductores";
             ResultSet rs=s.executeQuery(query);
             while (rs.next()){
                 
-               cliente.setRut(rs.getString("rut"));
-               cliente.setNombres(rs.getString("nombres"));
-               cliente.setApellidos(rs.getString("apellidos"));
-               cliente.setFechaNacimiento(rs.getString("fechaNacimiento"));
-               cliente.setRegion(rs.getString("region"));
-               cliente.setComuna(rs.getString("comuna"));
+               conductor.setNombre(rs.getString("nombre"));
+               conductor.setApellido(rs.getString("apellido"));
+               conductor.setRut(rs.getString("rut"));
                
-               ListaCliente.add(cliente);
+               ListaConductor.add(conductor);
                 
             }
             
-            return ListaCliente;
+            return ListaConductor;
         }catch (SQLException ex) {
             Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
     
-    public void Actualizar(){
+    public void Actualizardato(){
         
     }
     
-    public void Eliminar(){
+    public void EliminarDato(){
         
     }
-    
+
     public boolean Crear(Connection link, Conductor conductor){
         
         try{
             Statement s = link.createStatement();
-            query="insert into Conductor(nombres,apellido,rut)values('"+conductor.getNombre()+"','"+conductor.getApellido()+"','"+conductor.getRut()+"')";
+            query="insert into Conductores(nombres,apellido,rut)values('"+conductor.getNombre()+"','"+conductor.getApellido()+"','"+conductor.getRut()+"')";
             s.executeUpdate(query);
             return true;
             
