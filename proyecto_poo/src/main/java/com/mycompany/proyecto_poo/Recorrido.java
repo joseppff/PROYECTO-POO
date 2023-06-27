@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Recorrido implements Crud{
     private int numeroRecorrido;
     private int cantParadas;
-    private ArrayList<String> listaParadas = new ArrayList<String>();
+    private ArrayList<Parada> listaParadas = new ArrayList<Parada>();
     private ArrayList<Buses> listaBuses = new ArrayList<Buses>();
     
 //-------- CONSTRUCTOR --------/
@@ -38,7 +38,7 @@ public class Recorrido implements Crud{
         return cantParadas;
     }
 
-    public ArrayList<String> getListaParadas() {
+    public ArrayList<Parada> getListaParadas() {
         return listaParadas;
     }
 
@@ -54,7 +54,7 @@ public class Recorrido implements Crud{
         this.cantParadas = cantParadas;
     }
 
-    public void setListaParadas(ArrayList<String> listaParadas) {
+    public void setListaParadas(ArrayList<Parada> listaParadas) {
         this.listaParadas = listaParadas;
     }
 
@@ -70,12 +70,14 @@ public class Recorrido implements Crud{
         System.out.printf("Ingrese Nuevos datos:");
         System.out.print("1.- Patente del bus.");
         String patenteBus = scanner.nextLine();
+        System.out.print("Ingrese idRecorrido");
+        int nRecorrido = scanner.nextInt();
         System.out.print("2.- Hora de inicio: ");
         int nuevoInicio = scanner.nextInt();
         System.out.print("3.- Hora de final: ");
         int nuevoFinal = scanner.nextInt();
         
-        Buses nuevoBus = new Buses(patenteBus, nuevoInicio, nuevoFinal);
+        Buses nuevoBus = new Buses(patenteBus, nRecorrido, nuevoInicio, nuevoFinal);
         listaBuses.add(nuevoBus);
         System.out.println("Operación Finalizada :D .");
     }

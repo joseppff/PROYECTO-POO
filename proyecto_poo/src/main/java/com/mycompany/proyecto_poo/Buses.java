@@ -12,34 +12,46 @@ import java.util.Scanner;
 public class Buses extends BusFechaDisp implements Crud{
     // atributos de la micro
     private String patenteBus;
+    private int nRecorrido;
     private ArrayList<Conductor> listaConductores = new ArrayList<>();
     
 //-------- CONSTRUCTOR --------
 
-    public Buses(String patenteBus, int horaInicio, int horaTermino) {
+    public Buses(String patenteBus, int nRecorrido, int horaInicio, int horaTermino) {
         super(horaInicio, horaTermino);
         this.patenteBus = patenteBus;
+        this.nRecorrido = nRecorrido;
     }
 
 
 
     //--------- GET y SET --------
-    
+
     public String getPatenteBus() {
         return patenteBus;
-    }
-
-    public ArrayList<Conductor> getListaConductores() {
-        return listaConductores;
     }
 
     public void setPatenteBus(String patenteBus) {
         this.patenteBus = patenteBus;
     }
 
+    public int getnRecorrido() {
+        return nRecorrido;
+    }
+
+    public void setnRecorrido(int nRecorrido) {
+        this.nRecorrido = nRecorrido;
+    }
+
+    public ArrayList<Conductor> getListaConductores() {
+        return listaConductores;
+    }
+
     public void setListaConductores(ArrayList<Conductor> listaConductores) {
         this.listaConductores = listaConductores;
     }
+    
+
     
     
     
@@ -63,9 +75,9 @@ public class Buses extends BusFechaDisp implements Crud{
         String nuevoApellido = Scanner.nextLine();
         System.out.print("3.- Rut del conductor: ");
         String nuevoRut = Scanner.nextLine();
-
-        
-        Conductor nuevoConductor = new Conductor(nuevoNombre, nuevoApellido, nuevoRut);
+        System.out.print("4.- Bus a asignar: ");
+        String busAsignado = Scanner.nextLine();
+        Conductor nuevoConductor = new Conductor(nuevoNombre, nuevoApellido, nuevoRut, busAsignado);
         listaConductores.add(nuevoConductor);
         System.out.println("Operación Finalizada :D .");
     }
