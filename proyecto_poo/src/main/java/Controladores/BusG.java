@@ -3,12 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controladores;
-import com.mycompany.proyecto_poo.Conductor;
-/**
- *
- * @author diego
- */
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,43 +19,45 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import com.mycompany.proyecto_poo.ConductorBD;
+import com.mycompany.proyecto_poo.BusBD;
+import com.mycompany.proyecto_poo.Bus;
+import static com.mycompany.proyecto_poo.BusBD.ListaBus;
 
 /**
  *
  * @author diego
  */
-public class ConductorG implements ConductorBD {
+public class BusG implements BusBD{
     public String query;
+    
     @Override
-    public ArrayList<Conductor> Leer(Connection link){
+    public ArrayList<Bus> Leer(Connection link){
         
         try{
             Statement s = link.createStatement();
-            query="select * from conductores";
+            query="select * from buses";
             ResultSet rs=s.executeQuery(query);
             while (rs.next()){
-               Conductor conductor=new Conductor();
-               conductor.setNombre(rs.getString("nombre"));
-               conductor.setApellido(rs.getString("apellido"));
-               conductor.setRut(rs.getString("rut"));
-               conductor.setPatenteAsociada(rs.getString("patenteAsociada"));
-               ListaConductor.add(conductor);
-               
+               Bus bus=new Bus();
+               bus.setHoraInicio(rs.getInt("horainicio"));
+               bus.setHoraTermino(rs.getInt("horatermino"));
+               bus.setPatenteBus(rs.getString("patente"));
+               bus.setnRecorrido(rs.getInt("nRecorrido"));
+               ListaBus.add(bus);
             }
-            
-            return ListaConductor;
+            return ListaBus;
         }catch (SQLException ex) {
             Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    
+
+
     @Override
-    public boolean Actualizar(Connection link, Conductor conductor) {
+    public boolean Actualizar(Connection link, Bus bus) {
         try {
             Statement s = link.createStatement();
-            query = "UPDATE conductores SET nombre='" + conductor.getNombre() + "', apellido='" + conductor.getApellido() + "', patenteasociada='" + conductor.getPatenteAsociada() + "' WHERE rut='" + conductor.getRut() + "'";
+            query = "UPDATE buses SET horainicio='" + bus.getHoraInicio() + "', horatermino='" + bus.getHoraTermino() +"' WHERE patente='" + bus.getPatenteBus() + "', horatermino='" + bus.getnRecorrido() +"'";
             s.executeUpdate(query);
             return true;
         } catch (SQLException ex) {
@@ -69,24 +65,25 @@ public class ConductorG implements ConductorBD {
         }
         return false;
     }
+    
     @Override
-    public Conductor Buscar(Connection link, String rut){
-        Conductor conductor=new Conductor();
+    public Bus Buscar(Connection link, String patenteBus){
+        Bus bus=new Bus();
         try {
             Statement s = link.createStatement();
-            query="select * from conductores where rut='"+rut+"'";
+            query="select * from buses where patente='"+patenteBus+"'";
             ResultSet rs=s.executeQuery(query);
             
                    
    
             while (rs.next()){
-               conductor.setRut(rs.getString("rut"));
-               conductor.setNombre(rs.getString("nombre"));
-               conductor.setApellido(rs.getString("apellido"));
-               conductor.setPatenteAsociada(rs.getString("patenteAsociada"));
+               bus.setHoraInicio(rs.getInt("horainicio"));
+               bus.setHoraTermino(rs.getInt("horatermino"));
+               bus.setPatenteBus(rs.getString("patente"));
+               bus.setnRecorrido(rs.getInt("nRecorrido"));
    
             }
-            return conductor;
+            return bus;
   
             
         } catch (SQLException ex) {
@@ -94,13 +91,14 @@ public class ConductorG implements ConductorBD {
         }
         return null;
     }
+    
     @Override
-    public boolean Eliminar(Connection link, String rut) {
+    public boolean Eliminar(Connection link, String patenteBus) {
            try {
             //aqui hay que buscar si se encuentra 
             
             Statement s = link.createStatement();
-            query="delete * conductores where rut='"+rut+"'";
+            query="delete * buses where patente='"+patenteBus+"'";
             ResultSet rs=s.executeQuery(query);
             
             return true;
@@ -111,12 +109,13 @@ public class ConductorG implements ConductorBD {
         
         return false;
     }
+    
     @Override
-    public boolean Crear(Connection link, Conductor conductor){
+    public boolean Crear(Connection link, Bus bus){
         
         try{
             Statement s = link.createStatement();
-            query="insert into conductores(Nombre,Apellido,Rut,PatenteAsociada)values('"+conductor.getNombre()+"','"+conductor.getApellido()+"','"+conductor.getRut()+"','"+conductor.getPatenteAsociada()+"')";
+            query="insert into buses(Nombre,Apellido,Rut,PatenteAsociada)values('"+bus.getHoraInicio()+"','"+bus.getHoraTermino()+"','"+bus.getPatenteBus()+"','"+bus.getnRecorrido()+"')";
             s.executeUpdate(query);
             return true;
             

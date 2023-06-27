@@ -21,6 +21,9 @@ public abstract class BusFechaDisp {
         this.horaInicio = horaInicio;
         this.horaTermino = horaTermino;
     }
+    
+    public BusFechaDisp() {
+    }
 
     public int getHoraInicio() {
         return horaInicio;

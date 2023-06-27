@@ -57,7 +57,7 @@ public class main{
                             funcion.agregar();
                             break;
                         case 3:
-                            Crud funcion = new Buses();
+                            Crud funcion = new Bus();
                             funcion.agregar();
                             break;
                         default:
@@ -79,7 +79,7 @@ public class main{
                             funcion.imprimir();
                             break;
                         case 3:
-                            Crud funcion = new Buses();
+                            Crud funcion = new Bus();
                             funcion.imprimir();
                             break;
                         default:
@@ -99,7 +99,7 @@ public class main{
                             funcion.modificar();
                             break;
                         case 3:
-                            Crud funcion = new Buses();
+                            Crud funcion = new Bus();
                             funcion.modificar();
                             break;
                         default:
@@ -119,7 +119,7 @@ public class main{
                             funcion.eliminar();
                         break;
                         case 3:
-                            Crud funcion = new Buses();
+                            Crud funcion = new Bus();
                             funcion.eliminar();
                         break;
                         default:

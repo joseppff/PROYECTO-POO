@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class Reporte {
     private String Ruta;
-    private ArrayList<Buses>LBuses=new ArrayList<Buses>();
+    private ArrayList<Bus>LBuses=new ArrayList<Bus>();
     
     
     
@@ -33,7 +33,7 @@ public class Reporte {
             int i=0;
             while ((nextRecord = reader.readNext()) != null) {
                 
-                if(i>0)LBuses.add(new Buses(Integer.parseInt(nextRecord[0]),nextRecord[1],nextRecord[2]));
+                if(i>0)LBuses.add(new Bus(Integer.parseInt(nextRecord[0]),nextRecord[1],nextRecord[2]));
                   
                 
                 for (String cell : nextRecord) {

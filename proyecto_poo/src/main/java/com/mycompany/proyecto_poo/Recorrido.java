@@ -18,7 +18,7 @@ public class Recorrido implements Crud{
     private int numeroRecorrido;
     private int cantParadas;
     private ArrayList<Parada> listaParadas = new ArrayList<Parada>();
-    private ArrayList<Buses> listaBuses = new ArrayList<Buses>();
+    private ArrayList<Bus> listaBuses = new ArrayList<Bus>();
     
 //-------- CONSTRUCTOR --------/
 
@@ -26,6 +26,9 @@ public class Recorrido implements Crud{
         this.numeroRecorrido = numeroRecorrido;
         this.cantParadas = cantParadas;
         this.listaParadas = listaParadas;
+    }
+    
+    public Recorrido() {
     }
 
 //--------- GET y SET --------
@@ -42,7 +45,7 @@ public class Recorrido implements Crud{
         return listaParadas;
     }
 
-    public ArrayList<Buses> getListaBuses() {
+    public ArrayList<Bus> getListaBuses() {
         return listaBuses;
     }
 
@@ -58,7 +61,7 @@ public class Recorrido implements Crud{
         this.listaParadas = listaParadas;
     }
 
-    public void setListaBuses(ArrayList<Buses> listaBuses) {
+    public void setListaBuses(ArrayList<Bus> listaBuses) {
         this.listaBuses = listaBuses;
     }
 
@@ -77,7 +80,7 @@ public class Recorrido implements Crud{
         System.out.print("3.- Hora de final: ");
         int nuevoFinal = scanner.nextInt();
         
-        Buses nuevoBus = new Buses(patenteBus, nRecorrido, nuevoInicio, nuevoFinal);
+        Bus nuevoBus = new Bus(patenteBus, nRecorrido, nuevoInicio, nuevoFinal);
         listaBuses.add(nuevoBus);
         System.out.println("Operación Finalizada :D .");
     }

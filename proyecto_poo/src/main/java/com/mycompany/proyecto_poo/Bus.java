@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author jose
  */
 
-public class Buses extends BusFechaDisp implements Crud{
+public class Bus extends BusFechaDisp implements Crud{
     // atributos de la micro
     private String patenteBus;
     private int nRecorrido;
@@ -17,12 +17,15 @@ public class Buses extends BusFechaDisp implements Crud{
     
 //-------- CONSTRUCTOR --------
 
-    public Buses(String patenteBus, int nRecorrido, int horaInicio, int horaTermino) {
+    public Bus(String patenteBus, int nRecorrido, int horaInicio, int horaTermino) {
         super(horaInicio, horaTermino);
         this.patenteBus = patenteBus;
         this.nRecorrido = nRecorrido;
     }
 
+   public Bus() {
+        super();
+    }
 
 
     //--------- GET y SET --------

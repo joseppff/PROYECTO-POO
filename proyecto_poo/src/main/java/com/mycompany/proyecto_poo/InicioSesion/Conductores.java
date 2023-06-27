@@ -226,8 +226,29 @@ public class Conductores extends javax.swing.JInternalFrame {
 
     private void ModificarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarDatosActionPerformed
         // TODO add your handling code here:
+        ConductorG conductor=new ConductorG();
+        Conductor ConsultaConductor=new Conductor();
         
+        if(!txtRut.getText().equals("")){
+            ConsultaConductor=conductor.Buscar(link,txtRut.getText());
+            JOptionPane.showMessageDialog(null, "");
+            
+        }else{
+             JOptionPane.showMessageDialog(null, "Coloque un rut valido");
+        }
         
+        ConsultaConductor.setNombre(txtNombre.getText());
+        ConsultaConductor.setApellido(txtApellido.getText());
+        ConsultaConductor.setRut(txtRut.getText());
+        ConsultaConductor.setPatenteAsociada(txtPatenteAsociada.getText());
+        
+        if(conductor.Actualizar(link,ConsultaConductor)){
+            JOptionPane.showMessageDialog(null, "Datos Modificados!");
+        }else{
+            JOptionPane.showMessageDialog(null,"Los datos no fueron modificados");
+        }
+
+                      
     }//GEN-LAST:event_ModificarDatosActionPerformed
 
     private void EliminarDatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarDatoActionPerformed
