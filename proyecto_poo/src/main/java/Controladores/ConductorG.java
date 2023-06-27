@@ -36,19 +36,18 @@ public class ConductorG implements CrudBD {
     
     public ArrayList<Conductor> Leer(Connection link){
         
-        Conductor conductor=new Conductor();
         try{
             Statement s = link.createStatement();
             query="select * from conductores";
             ResultSet rs=s.executeQuery(query);
             while (rs.next()){
-                
+               Conductor conductor=new Conductor();
                conductor.setNombre(rs.getString("nombre"));
                conductor.setApellido(rs.getString("apellido"));
                conductor.setRut(rs.getString("rut"));
-               
+               conductor.setPatenteAsociada(rs.getString("patenteAsociada"));
                ListaConductor.add(conductor);
-                
+               
             }
             
             return ListaConductor;
@@ -70,7 +69,7 @@ public class ConductorG implements CrudBD {
         
         try{
             Statement s = link.createStatement();
-            query="insert into conductores(Nombre,Apellido,Rut)values('"+conductor.getNombre()+"','"+conductor.getApellido()+"','"+conductor.getRut()+"')";
+            query="insert into conductores(Nombre,Apellido,Rut,PatenteAsociada)values('"+conductor.getNombre()+"','"+conductor.getApellido()+"','"+conductor.getRut()+"','"+conductor.getPatenteAsociada()+"')";
             s.executeUpdate(query);
             return true;
             

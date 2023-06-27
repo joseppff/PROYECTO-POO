@@ -1,25 +1,33 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package com.mycompany.proyecto_poo.InicioSesion;
-
+import Controladores.ConductorG;
+import Controladores.ConexionBD;
+import com.mycompany.proyecto_poo.Conductor;
+import java.sql.Connection;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
  * @author diego
  */
-public class ReporteRecorrido extends javax.swing.JPanel {
+public class ReporteConductor extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ReporteRecorrido
+     * Creates new form ReporteConductor
      */
-    public ReporteRecorrido() {
+    public ConexionBD conexion;
+    public Connection link;
+    public ReporteConductor() {
         initComponents();
+        
+        conexion=new ConexionBD();
+        link=conexion.Conectar();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,10 +38,14 @@ public class ReporteRecorrido extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        TBuses = new javax.swing.JTable();
+        TConductor = new javax.swing.JTable();
         CargarDatos = new javax.swing.JButton();
 
-        TBuses.setModel(new javax.swing.table.DefaultTableModel(
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
+
+        TConductor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -41,10 +53,10 @@ public class ReporteRecorrido extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "N de Recorrido", "Bus Asociado", "Conductor", "Horario"
+                "Nombre", "Apellido", "Rut", "Patente Asociada"
             }
         ));
-        jScrollPane1.setViewportView(TBuses);
+        jScrollPane1.setViewportView(TConductor);
 
         CargarDatos.setText("Cargar Datos");
         CargarDatos.addActionListener(new java.awt.event.ActionListener() {
@@ -53,55 +65,53 @@ public class ReporteRecorrido extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(CargarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(CargarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CargarDatos, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(CargarDatos, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                .addGap(39, 39, 39))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void CargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarDatosActionPerformed
         // TODO add your handling code here:
-        
-        
-            ArrayList<>Lista=new ArrayList<>();
-        ClienteG cliente=new ClienteG();
-        Lista=cliente.Leer(link);
+        ArrayList<Conductor>Lista=new ArrayList<Conductor>();
+        ConductorG conductor=new ConductorG();
+        Lista=conductor.Leer(link);
         
         
         
         for(int i=0;i<Lista.size();i++){
-            System.out.println(Lista.get(i).getNombres());
-            Object[] row = { Lista.get(i).getRut(),Lista.get(i).getNombres(),Lista.get(i).getApellidos(),Lista.get(i).getFechaNacimiento(),Lista.get(i).getRegion(),Lista.get(i).getComuna()};
-                DefaultTableModel model = (DefaultTableModel) TBuses.getModel();
-            model.insertRow(i, row);
+            System.out.println(Lista.get(i).getNombre());
+            Object[] row = { Lista.get(i).getRut(),Lista.get(i).getNombre(),Lista.get(i).getApellido(),Lista.get(i).getRut(),Lista.get(i).getPatenteAsociada()};
+            DefaultTableModel model = (DefaultTableModel) TConductor.getModel();
+            model.insertRow(i,row);
         }
 
-        
-         
     }//GEN-LAST:event_CargarDatosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CargarDatos;
-    private javax.swing.JTable TBuses;
+    private javax.swing.JTable TConductor;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
