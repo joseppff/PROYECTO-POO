@@ -46,6 +46,13 @@ public class Conductores extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         txtPatenteAsociada = new javax.swing.JTextField();
         GuardarDatos = new javax.swing.JButton();
+        BuscarDato = new javax.swing.JButton();
+        ModificarDatos = new javax.swing.JButton();
+        EliminarDato = new javax.swing.JButton();
+
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jLabel1.setText("Nombre");
 
@@ -67,10 +74,37 @@ public class Conductores extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Patente Asociada");
 
+        txtPatenteAsociada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPatenteAsociadaActionPerformed(evt);
+            }
+        });
+
         GuardarDatos.setText("Guardar Datos");
         GuardarDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GuardarDatosActionPerformed(evt);
+            }
+        });
+
+        BuscarDato.setText("Buscar Dato");
+        BuscarDato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarDatoActionPerformed(evt);
+            }
+        });
+
+        ModificarDatos.setText("Modificar Datos");
+        ModificarDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarDatosActionPerformed(evt);
+            }
+        });
+
+        EliminarDato.setText("Eliminar Dato");
+        EliminarDato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarDatoActionPerformed(evt);
             }
         });
 
@@ -80,42 +114,58 @@ public class Conductores extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNombre)
-                    .addComponent(jLabel1)
-                    .addComponent(txtApellido)
-                    .addComponent(txtRut)
-                    .addComponent(txtPatenteAsociada, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addComponent(GuardarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(txtNombre)
+                                    .addComponent(jLabel1)
+                                    .addComponent(txtApellido)
+                                    .addComponent(txtRut)
+                                    .addComponent(txtPatenteAsociada, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BuscarDato, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(GuardarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(ModificarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                                .addComponent(EliminarDato, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(32, 32, 32))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(45, 45, 45)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2))
-                    .addComponent(GuardarDatos, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(3, 3, 3)
                 .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPatenteAsociada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPatenteAsociada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BuscarDato, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(GuardarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ModificarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EliminarDato, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -145,9 +195,62 @@ public class Conductores extends javax.swing.JInternalFrame {
                  
     }//GEN-LAST:event_GuardarDatosActionPerformed
 
+    private void txtPatenteAsociadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatenteAsociadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPatenteAsociadaActionPerformed
+
+    private void BuscarDatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDatoActionPerformed
+        // TODO add your handling code here:
+        
+        ConductorG conductor=new ConductorG();
+        Conductor ConsultaConductor=new Conductor();
+   
+        if(!txtRut.getText().equals("")){
+            ConsultaConductor=conductor.Buscar(link,txtRut.getText());
+            JOptionPane.showMessageDialog(null, "");
+            
+        }else{
+             JOptionPane.showMessageDialog(null, "Coloque un rut valido");
+        }
+       
+        
+        txtRut.setText(ConsultaConductor.getRut());
+        txtNombre.setText(ConsultaConductor.getNombre());
+        txtApellido.setText(ConsultaConductor.getApellido());
+        txtPatenteAsociada.setText(ConsultaConductor.getPatenteAsociada());
+        
+        
+        
+        
+    }//GEN-LAST:event_BuscarDatoActionPerformed
+
+    private void ModificarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarDatosActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_ModificarDatosActionPerformed
+
+    private void EliminarDatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarDatoActionPerformed
+        // TODO add your handling code here:
+        ConductorG conductor=new ConductorG();
+        Conductor ConsultaConductor=new Conductor();
+        ConsultaConductor.setRut(txtRut.getText());
+        
+        if(conductor.Crear(link,ConsultaConductor)){
+            JOptionPane.showMessageDialog(null, "Datos Eliminados!");
+        }else{
+            JOptionPane.showMessageDialog(null,"Los datos no fueron eliminados");
+        }
+
+                      
+    }//GEN-LAST:event_EliminarDatoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BuscarDato;
+    private javax.swing.JButton EliminarDato;
     private javax.swing.JButton GuardarDatos;
+    private javax.swing.JButton ModificarDatos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -57,12 +57,62 @@ public class ConductorG implements CrudBD {
         return null;
     }
     
-    public void Actualizardato(){
+    public boolean Actualizar(Connection link, Conductor conductor){
+        try{
+            Statement s = link.createStatement();
+            query="UPDATE conductores set nombre='"+conductor.getNombre()+"',apellido='"+conductor.getApellido()+"',rut='"+conductor.getRut()+"',patenteasociada='"+conductor.getPatenteAsociada()+"'";
+            s.executeUpdate(query);
+            return true;
+            
+        }catch (SQLException ex) {
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
+        return false;
+        
+       
     }
     
-    public void EliminarDato(){
+    public Conductor Buscar(Connection link, String rut){
+        Conductor conductor=new Conductor();
+        try {
+            Statement s = link.createStatement();
+            query="select * from conductores where rut='"+rut+"'";
+            ResultSet rs=s.executeQuery(query);
+            
+                   
+   
+            while (rs.next()){
+               conductor.setRut(rs.getString("rut"));
+               conductor.setNombre(rs.getString("nombre"));
+               conductor.setApellido(rs.getString("apellido"));
+               conductor.setPatenteAsociada(rs.getString("patenteAsociada"));
+   
+            }
+            return conductor;
+  
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public boolean Eliminar(Connection link, String rut) {
+           try {
+            //aqui hay que buscar si se encuentra 
+            
+            Statement s = link.createStatement();
+            query="delete * conductores where rut='"+rut+"'";
+            ResultSet rs=s.executeQuery(query);
+            
+            return true;
+            
+        }catch (SQLException ex) {
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
+        return false;
     }
 
     public boolean Crear(Connection link, Conductor conductor){
