@@ -44,11 +44,11 @@ public class Conductores extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         txtRut = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtPatenteAsociada = new javax.swing.JTextField();
         GuardarDatos = new javax.swing.JButton();
         BuscarDato = new javax.swing.JButton();
         ModificarDatos = new javax.swing.JButton();
         EliminarDato = new javax.swing.JButton();
+        txtPatenteAsociada = new javax.swing.JTextField();
 
         setClosable(true);
         setMaximizable(true);
@@ -73,12 +73,6 @@ public class Conductores extends javax.swing.JInternalFrame {
         jLabel3.setText("Rut");
 
         jLabel4.setText("Patente Asociada");
-
-        txtPatenteAsociada.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPatenteAsociadaActionPerformed(evt);
-            }
-        });
 
         GuardarDatos.setText("Guardar Datos");
         GuardarDatos.addActionListener(new java.awt.event.ActionListener() {
@@ -124,11 +118,11 @@ public class Conductores extends javax.swing.JInternalFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel3)
-                                    .addComponent(txtNombre)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
                                     .addComponent(jLabel1)
                                     .addComponent(txtApellido)
                                     .addComponent(txtRut)
-                                    .addComponent(txtPatenteAsociada, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
+                                    .addComponent(txtPatenteAsociada))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(BuscarDato, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -158,8 +152,8 @@ public class Conductores extends javax.swing.JInternalFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPatenteAsociada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BuscarDato, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BuscarDato, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPatenteAsociada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GuardarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,10 +188,6 @@ public class Conductores extends javax.swing.JInternalFrame {
         }
                  
     }//GEN-LAST:event_GuardarDatosActionPerformed
-
-    private void txtPatenteAsociadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatenteAsociadaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPatenteAsociadaActionPerformed
 
     private void BuscarDatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDatoActionPerformed
         // TODO add your handling code here:

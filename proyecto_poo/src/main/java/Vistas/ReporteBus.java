@@ -54,7 +54,7 @@ public class ReporteBus extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Hora Inicio", "Hora Termino", "Dia Semana", "Patente Bus", "Numero Recorrido"
+                "Hora Inicio", "Hora Termino", "Dia Semana", "Patente Bus", "Nombre Recorrido"
             }
         ));
         jScrollPane1.setViewportView(TBus);
@@ -73,10 +73,10 @@ public class ReporteBus extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(260, 260, 260)
                 .addComponent(CargarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(344, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
@@ -86,7 +86,7 @@ public class ReporteBus extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(CargarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         pack();
@@ -102,7 +102,7 @@ public class ReporteBus extends javax.swing.JInternalFrame {
         
         for(int i=0;i<Lista.size();i++){
             System.out.println(Lista.get(i).getPatenteBus());
-            Object[] row = { Lista.get(i).getHoraInicio(),Lista.get(i).getHoraTermino(),Lista.get(i).getDiaSemana(),Lista.get(i).getPatenteBus(),Lista.get(i).getnRecorrido()};
+            Object[] row = { Lista.get(i).getHoraInicio(),Lista.get(i).getHoraTermino(),Lista.get(i).getDiaSemana(),Lista.get(i).getPatenteBus(),Lista.get(i).getNombreRecorrido()};
             DefaultTableModel model = (DefaultTableModel) TBus.getModel();
             model.insertRow(i,row);
         }

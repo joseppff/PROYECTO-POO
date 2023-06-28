@@ -43,8 +43,8 @@ public class Buses extends javax.swing.JInternalFrame {
         RecorridoG Listarecorrido=new RecorridoG();
         Lista=Listarecorrido.Leer(link);
          for(int i=0;i<Lista.size();i++){
-            Recorrido recorrido=new Recorrido(Lista.get(i).getNumeroRecorrido());
-            cambiarRecorrido.addItem(String.valueOf(Lista.get(i).getNumeroRecorrido()));
+            Recorrido recorrido=new Recorrido(Lista.get(i).getNumeroRecorrido(),Lista.get(i).getNombreRecorrido());
+            cambiarRecorrido.addItem(String.valueOf(Lista.get(i).getNombreRecorrido()));
         }
         
         
@@ -232,7 +232,7 @@ public class Buses extends javax.swing.JInternalFrame {
         ConsultaBus.setHoraTermino(Integer.valueOf(txtHoraTermino.getText()));
         ConsultaBus.setPatenteBus(cambiarDia.getSelectedItem().toString());
         ConsultaBus.setPatenteBus(txtPatenteBus.getText());
-        ConsultaBus.setnRecorrido(Integer.parseInt(cambiarRecorrido.getSelectedItem().toString()));
+        ConsultaBus.setNombreRecorrido(cambiarRecorrido.getSelectedItem().toString());
         
         if(bus.Actualizar(link,ConsultaBus)){
             JOptionPane.showMessageDialog(null, "Datos Modificados!");
@@ -277,7 +277,7 @@ public class Buses extends javax.swing.JInternalFrame {
         txtHoraTermino.setText(String.valueOf(ConsultaBus.getHoraTermino()));
         cambiarDia.setSelectedItem(ConsultaBus.getDiaSemana());
         txtPatenteBus.setText(ConsultaBus.getPatenteBus());
-        cambiarRecorrido.setSelectedItem(String.valueOf(ConsultaBus.getnRecorrido()));
+        cambiarRecorrido.setSelectedItem(String.valueOf(ConsultaBus.getNombreRecorrido()));
         
         
         
@@ -293,7 +293,7 @@ public class Buses extends javax.swing.JInternalFrame {
         ConsultaBus.setHoraTermino(Integer.valueOf(txtHoraTermino.getText()));
         ConsultaBus.setDiaSemana(cambiarDia.getSelectedItem().toString());
         ConsultaBus.setPatenteBus(txtPatenteBus.getText());
-        ConsultaBus.setnRecorrido(Integer.parseInt(cambiarRecorrido.getSelectedItem().toString()));
+        ConsultaBus.setNombreRecorrido(cambiarRecorrido.getSelectedItem().toString());
 
         if(bus.Crear(link,ConsultaBus)){
             this.setVisible(false);

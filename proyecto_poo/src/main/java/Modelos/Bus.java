@@ -12,17 +12,18 @@ import java.util.Scanner;
 public class Bus extends BusFechaDisp implements Crud{
     // atributos de la micro
     private String patenteBus;
-    private int nRecorrido;
+    private String nombreRecorrido;
     private ArrayList<Conductor> listaConductores = new ArrayList<>();
     
 //-------- CONSTRUCTOR --------
 
-    public Bus(String patenteBus, int nRecorrido, int horaInicio, int horaTermino, String diaSemana) {
+    public Bus(String patenteBus, String nombreRecorrido, int horaInicio, int horaTermino, String diaSemana) {
         super(horaInicio, horaTermino, diaSemana);
         this.patenteBus = patenteBus;
-        this.nRecorrido = nRecorrido;
+        this.nombreRecorrido = nombreRecorrido;
     }
 
+   
 
 
    public Bus() {
@@ -40,12 +41,12 @@ public class Bus extends BusFechaDisp implements Crud{
         this.patenteBus = patenteBus;
     }
 
-    public int getnRecorrido() {
-        return nRecorrido;
+    public String getNombreRecorrido() {
+        return nombreRecorrido;
     }
 
-    public void setnRecorrido(int nRecorrido) {
-        this.nRecorrido = nRecorrido;
+    public void setNombreRecorrido(String nombreRecorrido) {
+        this.nombreRecorrido = nombreRecorrido;
     }
 
     public ArrayList<Conductor> getListaConductores() {
@@ -55,6 +56,8 @@ public class Bus extends BusFechaDisp implements Crud{
     public void setListaConductores(ArrayList<Conductor> listaConductores) {
         this.listaConductores = listaConductores;
     }
+
+
     
 
     

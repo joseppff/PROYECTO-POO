@@ -16,23 +16,35 @@ import java.util.Scanner;
 
 public class Recorrido implements Crud{
     private int numeroRecorrido;
+    private String nombreRecorrido;
     private int cantParadas;
     private ArrayList<Parada> listaParadas = new ArrayList<Parada>();
     private ArrayList<Bus> listaBuses = new ArrayList<Bus>();
     
 //-------- CONSTRUCTOR --------/
 
-    public Recorrido(int numeroRecorrido, int cantParadas, ArrayList listaParadas) {
+    public Recorrido(int numeroRecorrido, String nombreRecorrido, int cantParadas) {
         this.numeroRecorrido = numeroRecorrido;
+        this.nombreRecorrido = nombreRecorrido;
+        this.cantParadas = cantParadas;
+    }
+
+    public Recorrido(int numeroRecorrido, String nombreRecorrido, int cantParadas, ArrayList<Parada> listaParadas) {
+        this.numeroRecorrido = numeroRecorrido;
+        this.nombreRecorrido = nombreRecorrido;
         this.cantParadas = cantParadas;
         this.listaParadas = listaParadas;
     }
+
+
+
     
     public Recorrido() {
     }
     
-    public Recorrido(int numeroRecorrido) {
+    public Recorrido(int numeroRecorrido, String nombreRecorrido) {
         this.numeroRecorrido = numeroRecorrido;
+        this.nombreRecorrido = nombreRecorrido;
     }
 
 //--------- GET y SET --------
@@ -41,33 +53,43 @@ public class Recorrido implements Crud{
         return numeroRecorrido;
     }
 
-    public int getCantParadas() {
-        return cantParadas;
-    }
-
-    public ArrayList<Parada> getListaParadas() {
-        return listaParadas;
-    }
-
-    public ArrayList<Bus> getListaBuses() {
-        return listaBuses;
-    }
-
     public void setNumeroRecorrido(int numeroRecorrido) {
         this.numeroRecorrido = numeroRecorrido;
+    }
+
+    public String getNombreRecorrido() {
+        return nombreRecorrido;
+    }
+
+    public void setNombreRecorrido(String nombreRecorrido) {
+        this.nombreRecorrido = nombreRecorrido;
+    }
+
+    public int getCantParadas() {
+        return cantParadas;
     }
 
     public void setCantParadas(int cantParadas) {
         this.cantParadas = cantParadas;
     }
 
+    public ArrayList<Parada> getListaParadas() {
+        return listaParadas;
+    }
+
     public void setListaParadas(ArrayList<Parada> listaParadas) {
         this.listaParadas = listaParadas;
+    }
+
+    public ArrayList<Bus> getListaBuses() {
+        return listaBuses;
     }
 
     public void setListaBuses(ArrayList<Bus> listaBuses) {
         this.listaBuses = listaBuses;
     }
+
+
 
 //2.- IMPRIMIR DATOS BUSES
     @Override
@@ -77,8 +99,8 @@ public class Recorrido implements Crud{
         System.out.printf("Ingrese Nuevos datos:");
         System.out.print("1.- Patente del bus.");
         String patenteBus = scanner.nextLine();
-        System.out.print("Ingrese idRecorrido");
-        int nRecorrido = scanner.nextInt();
+        System.out.print("Ingrese Nombre Recorrido");
+        String nombreRecorrido = scanner.nextLine();
         System.out.print("2.- Hora de inicio: ");
         int nuevoInicio = scanner.nextInt();
         System.out.print("3.- Hora de final: ");
@@ -86,7 +108,7 @@ public class Recorrido implements Crud{
         System.out.print("4.- Dia de la semana");
         String diaSemana = scanner.nextLine();
 
-        Bus nuevoBus = new Bus(patenteBus, nuevoInicio,nuevoFinal, nRecorrido,diaSemana);
+        Bus nuevoBus = new Bus(patenteBus,nombreRecorrido, nuevoInicio,nuevoFinal,diaSemana);
         listaBuses.add(nuevoBus);
         System.out.println("Operación Finalizada :D .");
     }

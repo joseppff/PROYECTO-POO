@@ -31,6 +31,7 @@ public class RecorridoG {
                 while (rs.next()){
                    Recorrido recorrido=new Recorrido();
                    recorrido.setNumeroRecorrido(rs.getInt("numerorecorrido"));
+                   recorrido.setNombreRecorrido(rs.getString("nombrerecorrido"));
                    ListaRecorrido.add(recorrido);
 
                 }
@@ -43,15 +44,15 @@ public class RecorridoG {
        }
 
         
-        public int Buscar(Connection link, String nrecorrido){
+        public int Buscar(Connection link, String nombrerecorrido){
             int id=0;
             try{
             Statement s = link.createStatement();
-            query="select * from Recorridos where recorrido='"+nrecorrido+"'";
+            query="select * from Recorridos where recorrido='"+nombrerecorrido+"'";
             ResultSet rs=s.executeQuery(query);
                 while (rs.next()){
                    
-                   id=rs.getInt("nrecorrido");
+                   id=rs.getInt("nombrerecorrido");
                    
 
                 }

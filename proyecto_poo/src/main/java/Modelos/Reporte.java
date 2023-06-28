@@ -33,7 +33,7 @@ public class Reporte {
             int i=0;
             while ((nextRecord = reader.readNext()) != null) {
                 
-                if (i > 0) LBuses.add(new Bus(nextRecord[0], Integer.parseInt(nextRecord[1]), Integer.parseInt(nextRecord[2]), Integer.parseInt(nextRecord[3]), nextRecord[4]));
+                if (i > 0) LBuses.add(new Bus(nextRecord[0], nextRecord[1], Integer.parseInt(nextRecord[2]), Integer.parseInt(nextRecord[3]), nextRecord[4]));
 
                   //string, int, int, int, string
                 

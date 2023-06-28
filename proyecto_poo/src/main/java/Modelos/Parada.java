@@ -9,20 +9,24 @@ package Modelos;
  * @author diego
  */
 public class Parada {
-    private String parada;
+    private String nombreParada;
 
-    public Parada(String parada) {
-        this.parada = parada;
+    public Parada(String nombreParada) {
+        this.nombreParada = nombreParada;
+    }
+
+    public Parada() {
     }
     
-
-    public String getParada() {
-        return parada;
-    }
-
-    public void setParada(String parada) {
-        this.parada = parada;
-    }
     
+    public String getNombreParada() {
+        return nombreParada;
+    }
+
+    public void setNombreParada(String nombreParada) {
+        this.nombreParada = nombreParada;
+    }
+
+
     
 }

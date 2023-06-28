@@ -26,17 +26,22 @@ public class Central implements Crud{
         System.out.printf("1.- Número de recorrido.");
         int numeroRecorrido = Scanner.nextInt();
         
-        System.out.printf("2.- Cantidad de paradas.");
+        System.out.printf("2.- Nombre del recorrido.");
+        String nombreRecorrido = Scanner.nextLine();
+        
+        System.out.printf("3.- Cantidad de paradas.");
         int cantParadas = Scanner.nextInt();
         
-        System.out.println("Ingrese los nombres de las paradas :");
-        ArrayList<String> nuevaListaParadas = new ArrayList<String>();
-        for (int i = 1; i <= cantParadas; i++) {
-            String parada = Scanner.nextLine();
-            nuevaListaParadas.add(parada);
-        }
         
-        Recorrido nuevoRecorrido = new Recorrido(numeroRecorrido, cantParadas, nuevaListaParadas);
+        System.out.println("Ingrese los nombres de las paradas :");
+        String parada = null;
+        ArrayList<Parada> nuevaListaParadas = new ArrayList<Parada>();
+        for (int i = 1; i <= cantParadas; i++) {
+            parada = Scanner.nextLine();
+            Parada nuevaParada = new Parada(parada);
+            nuevaListaParadas.add(nuevaParada);
+        }
+        Recorrido nuevoRecorrido = new Recorrido(numeroRecorrido,nombreRecorrido, cantParadas, nuevaListaParadas);
         listaRecorridos.add(nuevoRecorrido);
         
         System.out.println("Operación Finalizada :D .");

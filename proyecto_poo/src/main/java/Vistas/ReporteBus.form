@@ -27,11 +27,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
               <Component id="CargarDatos" min="-2" pref="120" max="-2" attributes="0"/>
-              <EmptySpace pref="127" max="32767" attributes="0"/>
+              <EmptySpace pref="344" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="472" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="684" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -43,7 +43,7 @@
               <Component id="jScrollPane1" min="-2" pref="330" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="CargarDatos" min="-2" pref="62" max="-2" attributes="0"/>
-              <EmptySpace pref="17" max="32767" attributes="0"/>
+              <EmptySpace pref="91" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,7 +64,7 @@
                 <Column editable="true" title="Hora Termino" type="java.lang.Object"/>
                 <Column editable="true" title="Dia Semana" type="java.lang.Object"/>
                 <Column editable="true" title="Patente Bus" type="java.lang.Object"/>
-                <Column editable="true" title="Numero Recorrido" type="java.lang.Object"/>
+                <Column editable="true" title="Nombre Recorrido" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
