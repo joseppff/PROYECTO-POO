@@ -230,7 +230,7 @@ public class Buses extends javax.swing.JInternalFrame {
         
         ConsultaBus.setHoraInicio(Integer.valueOf(txtHoraInicio.getText()));
         ConsultaBus.setHoraTermino(Integer.valueOf(txtHoraTermino.getText()));
-        ConsultaBus.setPatenteBus(cambiarDia.getSelectedItem().toString());
+        ConsultaBus.setDiaSemana(cambiarDia.getSelectedItem().toString());
         ConsultaBus.setPatenteBus(txtPatenteBus.getText());
         ConsultaBus.setNombreRecorrido(cambiarRecorrido.getSelectedItem().toString());
         
