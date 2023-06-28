@@ -85,6 +85,10 @@ public class Buses extends javax.swing.JInternalFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jLabel1.setText("Patente Bus");
 
         jLabel2.setText("Recorrido a asignar");

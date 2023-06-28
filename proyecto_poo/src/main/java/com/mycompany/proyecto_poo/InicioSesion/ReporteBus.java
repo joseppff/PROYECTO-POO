@@ -3,31 +3,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package com.mycompany.proyecto_poo.InicioSesion;
-import Controladores.ConductorG;
+
+import Controladores.BusG;
 import Controladores.ConexionBD;
-import com.mycompany.proyecto_poo.Conductor;
+import com.mycompany.proyecto_poo.Bus;
 import java.sql.Connection;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-
 
 /**
  *
  * @author diego
  */
-public class ReporteConductor extends javax.swing.JInternalFrame {
+public class ReporteBus extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form ReporteConductor
+     * Creates new form ReporteBus
      */
     public ConexionBD conexion;
     public Connection link;
-    public ReporteConductor() {
+    public ReporteBus() {
         initComponents();
         
         conexion=new ConexionBD();
         link=conexion.Conectar();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,14 +39,14 @@ public class ReporteConductor extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        TConductor = new javax.swing.JTable();
+        TBus = new javax.swing.JTable();
         CargarDatos = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
 
-        TConductor.setModel(new javax.swing.table.DefaultTableModel(
+        TBus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -53,10 +54,10 @@ public class ReporteConductor extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Rut", "Nombre", "Apellido", "Patente Asociada"
+                "Hora Inicio", "Hora Termino", "Patente Bus", "Numero Recorrido"
             }
         ));
-        jScrollPane1.setViewportView(TConductor);
+        jScrollPane1.setViewportView(TBus);
 
         CargarDatos.setText("Cargar Datos");
         CargarDatos.addActionListener(new java.awt.event.ActionListener() {
@@ -70,22 +71,20 @@ public class ReporteConductor extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(CargarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CargarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CargarDatos, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                .addGap(77, 77, 77))
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CargarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -93,16 +92,16 @@ public class ReporteConductor extends javax.swing.JInternalFrame {
 
     private void CargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarDatosActionPerformed
         // TODO add your handling code here:
-        ArrayList<Conductor>Lista=new ArrayList<Conductor>();
-        ConductorG conductor=new ConductorG();
-        Lista=conductor.Leer(link);
+        ArrayList<Bus>Lista=new ArrayList<Bus>();
+        BusG bus=new BusG();
+        Lista=bus.Leer(link);
         
         
         
         for(int i=0;i<Lista.size();i++){
-            System.out.println(Lista.get(i).getNombre());
-            Object[] row = { Lista.get(i).getRut(),Lista.get(i).getNombre(),Lista.get(i).getApellido(),Lista.get(i).getPatenteAsociada()};
-            DefaultTableModel model = (DefaultTableModel) TConductor.getModel();
+            System.out.println(Lista.get(i).getPatenteBus());
+            Object[] row = { Lista.get(i).getHoraInicio(),Lista.get(i).getHoraTermino(),Lista.get(i).getPatenteBus(),Lista.get(i).getnRecorrido()};
+            DefaultTableModel model = (DefaultTableModel) TBus.getModel();
             model.insertRow(i,row);
         }
 
@@ -111,7 +110,7 @@ public class ReporteConductor extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CargarDatos;
-    private javax.swing.JTable TConductor;
+    private javax.swing.JTable TBus;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

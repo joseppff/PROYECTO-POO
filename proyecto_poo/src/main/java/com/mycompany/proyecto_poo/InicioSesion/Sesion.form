@@ -28,6 +28,14 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ReporteConductorMouseClicked"/>
           </Events>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="ReporteBus">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Reporte Bus"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ReporteBusMouseClicked"/>
+          </Events>
+        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>

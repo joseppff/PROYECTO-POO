@@ -36,6 +36,7 @@ public class Sesion extends javax.swing.JFrame {
         ConductoresFrame = new javax.swing.JMenu();
         Buses = new javax.swing.JMenu();
         ReporteConductor = new javax.swing.JMenu();
+        ReporteBus = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +65,14 @@ public class Sesion extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(ReporteConductor);
+
+        ReporteBus.setText("Reporte Bus");
+        ReporteBus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ReporteBusMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(ReporteBus);
 
         setJMenuBar(jMenuBar1);
 
@@ -118,6 +127,17 @@ public class Sesion extends javax.swing.JFrame {
         } catch (java.beans.PropertyVetoException e) {}
     }//GEN-LAST:event_ConductoresFrameMouseClicked
 
+    private void ReporteBusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReporteBusMouseClicked
+        // TODO add your handling code here:
+        ReporteBus reporte=new ReporteBus();
+        reporte.setVisible(true);
+        this.add(reporte);
+            
+        try {
+           reporte.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {}
+    }//GEN-LAST:event_ReporteBusMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -157,6 +177,7 @@ public class Sesion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Buses;
     private javax.swing.JMenu ConductoresFrame;
+    private javax.swing.JMenu ReporteBus;
     private javax.swing.JMenu ReporteConductor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
