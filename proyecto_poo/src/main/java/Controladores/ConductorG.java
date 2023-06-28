@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controladores;
-import com.mycompany.proyecto_poo.Conductor;
+import Modelos.Conductor;
 /**
  *
  * @author diego
@@ -25,7 +25,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import com.mycompany.proyecto_poo.ConductorBD;
+import Modelos.ConductorBD;
 
 /**
  *

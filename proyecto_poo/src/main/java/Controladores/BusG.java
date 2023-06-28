@@ -19,9 +19,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import com.mycompany.proyecto_poo.BusBD;
-import com.mycompany.proyecto_poo.Bus;
-import static com.mycompany.proyecto_poo.BusBD.ListaBus;
+import Modelos.BusBD;
+import Modelos.Bus;
+import static Modelos.BusBD.ListaBus;
 
 /**
  *
@@ -41,6 +41,7 @@ public class BusG implements BusBD{
                Bus bus=new Bus();
                bus.setHoraInicio(rs.getInt("horainicio"));
                bus.setHoraTermino(rs.getInt("horatermino"));
+               bus.setDiaSemana(rs.getString("diasemana"));
                bus.setPatenteBus(rs.getString("patente"));
                bus.setnRecorrido(rs.getInt("nRecorrido"));
                ListaBus.add(bus);
@@ -57,7 +58,7 @@ public class BusG implements BusBD{
     public boolean Actualizar(Connection link, Bus bus) {
         try {
             Statement s = link.createStatement();
-            query = "UPDATE buses SET horainicio='" + bus.getHoraInicio() + "', horatermino='" + bus.getHoraTermino() + "', nrecorrido='" + bus.getnRecorrido() + "' WHERE patente='" + bus.getPatenteBus() + "'";
+            query = "UPDATE buses SET horainicio='" + bus.getHoraInicio() + "', horatermino='" + bus.getHoraTermino()  + "', diasemana='" + bus.getDiaSemana()+ "', nrecorrido='" + bus.getnRecorrido() + "' WHERE patente='" + bus.getPatenteBus() + "'";
             s.executeUpdate(query);
             return true;
         } catch (SQLException ex) {
@@ -79,6 +80,7 @@ public class BusG implements BusBD{
             while (rs.next()){
                bus.setHoraInicio(rs.getInt("horainicio"));
                bus.setHoraTermino(rs.getInt("horatermino"));
+               bus.setDiaSemana(rs.getString("diasemana"));
                bus.setPatenteBus(rs.getString("patente"));
                bus.setnRecorrido(rs.getInt("nRecorrido"));
    
@@ -115,7 +117,7 @@ public class BusG implements BusBD{
         
         try{
             Statement s = link.createStatement();
-            query="insert into buses(horainicio,horatermino,patente,nrecorrido)values('"+bus.getHoraInicio()+"','"+bus.getHoraTermino()+"','"+bus.getPatenteBus()+"','"+bus.getnRecorrido()+"')";
+            query = "INSERT INTO buses (horainicio, horatermino, diasemana, patente, nrecorrido) VALUES ('" + bus.getHoraInicio() + "', '" + bus.getHoraTermino() + "', '" + bus.getDiaSemana() + "', '" + bus.getPatenteBus() + "', " + bus.getnRecorrido() + ")";
             s.executeUpdate(query);
             return true;
             

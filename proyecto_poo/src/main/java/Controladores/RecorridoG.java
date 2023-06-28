@@ -13,8 +13,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-import com.mycompany.proyecto_poo.Recorrido;
-import static com.mycompany.proyecto_poo.RecorridoBD.ListaRecorrido;
+import Modelos.Recorrido;
+import static Modelos.RecorridoBD.ListaRecorrido;
 
 /**
  *
