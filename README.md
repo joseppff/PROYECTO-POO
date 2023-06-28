@@ -1,27 +1,30 @@
 # PROYECTO-POO
 PROYECTO POO GRUPO JOSE PEÑA - DIEGO MARTINEZ - JESUS VASQUEZ
 
-//// PASOS PREVIOS
-PARA EL CORRECTO USO DE LA APLICACION Y POSTERIOR ENLACE CON LA BASE DE DATOS SE DEBE IMPORTAR EN EL XAMPP EL ARCHIVO 'SistemaBuses.sql'
+//// Pasos previos
 
-//// COMO ABRIR
-EJECUTE EL ARCHIVO INICIO DE SESION PARA INICIAR EL PROYECTO
+Para el correcto uso de la aplicacion y posterior enlace con la base de datos se debe importar en la pagina administrador de xampp el archivo 'sistemabuses.Sql'  a una base de datos con el nombre 'sistemabuses'.
 
-/// VENTANA INICIO SESION
-DATOS DE INICIO DE SESION
-CORREO : 'pruebaProyecto@pucv.cl'
-CONTRASEÑA : '123'
+//// Como abrir?
 
-/// VENTANA MENU
-SE TIENEN 4 OPCIONES LAS CUALES:
--CONDUCTORES: ABRE LA VENTANA CONDUCTORES EN LA CUAL SE PUEDE CREAR, MODIFICAR, BUSCAR, ELIMINAR UN CONDUCTOR. ESTE CONDUCTOR PUEDE O NO ASIGNARSE A UN BUS A TRAVES DE UNA PATENTE.
+Ejecute el archivo Aplicacion para iniciar el proyecto
 
--BUSES: ABRE LA VENTANA BUSES EN LA CUAL SE PUEDE CREAR, MODIFICAR, BUSCAR, ELIMINAR UN BUS. ESTE BUS PUEDE O NO ASIGNARSE A UN RECORRIDO EXISTENTE.
+/// Ventana inicio sesion.
 
--REPORTE CONDUCTOR: ABRE UNA VENTANA CON UNA TABLA EN LA CUAL SE PUEDEN CARGAR LOS DATOS DE ALMACENADOS EN LA BASE DE DATOS,
- DATOS PREVIAMENTE CREADOS CON LA VENTANA CONDUCTOR APARECERAN AQUI Y ESTARAN TAMBIEN ALMACENADOS EN LA BASE DE DATOS.
- 
--REPORTE BUS: ABRE UNA VENTANA CON UNA TABLA EN LA CUAL SE PUEDEN CARGAR LOS DATOS DE ALMACENADOS EN LA BASE DE DATOS,
- DATOS PREVIAMENTE CREADOS CON LA VENTANA BUSES APARECERAN AQUI Y ESTARAN TAMBIEN ALMACENADOS EN LA BASE DE DATOS.
+Datos de inicio de sesion
 
+correo : 'pruebaProyecto@pucv.cl'
 
+contraseña : '123'
+
+/// ventana menu.
+
+Se tienen 4 opciones las cuales:
+
+-Conductores: Abre la ventana conductores en la cual se puede crear, modificar, buscar, eliminar un conductor. Este conductor puede o no asignarse a un bus a traves de una patente.
+
+-Buses: Abre la ventana buses en la cual se puede crear, modificar, buscar, eliminar un bus. Este bus puede o no asignarse a un recorrido existente.
+
+-Reporte conductor: Abre una ventana con una tabla en la cual se pueden cargar los datos de almacenados en la base de datos, datos previamente creados con la ventana conductor apareceran aqui y estaran tambien almacenados en la base de datos.
+
+-Reporte bus: Abre una ventana con una tabla en la cual se pueden cargar los datos de almacenados en la base de datos, datos previamente creados con la ventana buses apareceran aqui y estaran tambien almacenados en la base de datos.
