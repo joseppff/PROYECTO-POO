@@ -23,7 +23,9 @@ public class Bus extends BusFechaDisp implements Crud{
         this.nombreRecorrido = nombreRecorrido;
     }
 
-   
+    public Bus(String patenteBus) {
+        this.patenteBus = patenteBus;
+    }
 
 
    public Bus() {

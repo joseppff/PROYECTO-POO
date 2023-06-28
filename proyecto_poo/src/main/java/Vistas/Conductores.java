@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Controladores.BusG;
+import Modelos.Bus;
 /**
  *
  * @author diego
@@ -26,8 +28,24 @@ public class Conductores extends javax.swing.JInternalFrame {
         
         conexion=new ConexionBD();
         link=conexion.Conectar();
+        CargarPatente();
     }
 
+    
+    public void CargarPatente(){
+        
+        ArrayList<Bus>Lista=new ArrayList<Bus>();
+        BusG Listabus=new BusG();
+        Lista=Listabus.Leer(link);
+         for(int i=0;i<Lista.size();i++){
+            Bus bus=new Bus(Lista.get(i).getPatenteBus());
+            cambiarPatente.addItem(String.valueOf(Lista.get(i).getPatenteBus()));
+        }
+        
+        
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,7 +66,7 @@ public class Conductores extends javax.swing.JInternalFrame {
         BuscarDato = new javax.swing.JButton();
         ModificarDatos = new javax.swing.JButton();
         EliminarDato = new javax.swing.JButton();
-        txtPatenteAsociada = new javax.swing.JTextField();
+        cambiarPatente = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setMaximizable(true);
@@ -102,6 +120,12 @@ public class Conductores extends javax.swing.JInternalFrame {
             }
         });
 
+        cambiarPatente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambiarPatenteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,7 +146,7 @@ public class Conductores extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel1)
                                     .addComponent(txtApellido)
                                     .addComponent(txtRut)
-                                    .addComponent(txtPatenteAsociada))
+                                    .addComponent(cambiarPatente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(BuscarDato, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -153,7 +177,7 @@ public class Conductores extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BuscarDato, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPatenteAsociada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cambiarPatente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GuardarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -181,7 +205,7 @@ public class Conductores extends javax.swing.JInternalFrame {
         ConsultaConductor.setNombre(txtNombre.getText());
         ConsultaConductor.setApellido(txtApellido.getText());
         ConsultaConductor.setRut(txtRut.getText());
-        ConsultaConductor.setPatenteAsociada(txtPatenteAsociada.getText());
+        ConsultaConductor.setPatenteAsociada(cambiarPatente.getSelectedItem().toString());
         if(conductor.Crear(link,ConsultaConductor)){
             this.setVisible(false);
             JOptionPane.showMessageDialog(null,"Datos Creados!");
@@ -207,7 +231,7 @@ public class Conductores extends javax.swing.JInternalFrame {
         txtRut.setText(ConsultaConductor.getRut());
         txtNombre.setText(ConsultaConductor.getNombre());
         txtApellido.setText(ConsultaConductor.getApellido());
-        txtPatenteAsociada.setText(ConsultaConductor.getPatenteAsociada());
+        cambiarPatente.setSelectedItem(ConsultaConductor.getPatenteAsociada());
         
         
         
@@ -230,7 +254,7 @@ public class Conductores extends javax.swing.JInternalFrame {
         ConsultaConductor.setNombre(txtNombre.getText());
         ConsultaConductor.setApellido(txtApellido.getText());
         ConsultaConductor.setRut(txtRut.getText());
-        ConsultaConductor.setPatenteAsociada(txtPatenteAsociada.getText());
+        ConsultaConductor.setPatenteAsociada(cambiarPatente.getSelectedItem().toString());
         
         if(conductor.Actualizar(link,ConsultaConductor)){
             JOptionPane.showMessageDialog(null, "Datos Modificados!");
@@ -256,19 +280,23 @@ public class Conductores extends javax.swing.JInternalFrame {
                       
     }//GEN-LAST:event_EliminarDatoActionPerformed
 
+    private void cambiarPatenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarPatenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cambiarPatenteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BuscarDato;
     private javax.swing.JButton EliminarDato;
     private javax.swing.JButton GuardarDatos;
     private javax.swing.JButton ModificarDatos;
+    private javax.swing.JComboBox<String> cambiarPatente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPatenteAsociada;
     private javax.swing.JTextField txtRut;
     // End of variables declaration//GEN-END:variables
 }
