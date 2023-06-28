@@ -3,7 +3,7 @@ PROYECTO POO GRUPO JOSE PEÑA - DIEGO MARTINEZ - JESUS VASQUEZ
 
 //// Pasos previos
 
-Para el correcto uso de la aplicacion y posterior enlace con la base de datos se debe importar en la pagina administrador de xampp el archivo 'sistemabuses.Sql'  a una base de datos con el nombre 'sistemabuses'.
+Para el correcto uso de la aplicacion y posterior enlace con la base de datos se debe importar en la pagina administrador de xampp el archivo 'sistemabuses.sql'  a una base de datos con el nombre 'sistemabuses'.
 
 //// Como abrir?
 
