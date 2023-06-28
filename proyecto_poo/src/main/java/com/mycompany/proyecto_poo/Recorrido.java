@@ -30,6 +30,10 @@ public class Recorrido implements Crud{
     
     public Recorrido() {
     }
+    
+    public Recorrido(int numeroRecorrido) {
+        this.numeroRecorrido = numeroRecorrido;
+    }
 
 //--------- GET y SET --------
 

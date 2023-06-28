@@ -57,7 +57,7 @@ public class BusG implements BusBD{
     public boolean Actualizar(Connection link, Bus bus) {
         try {
             Statement s = link.createStatement();
-            query = "UPDATE buses SET horainicio='" + bus.getHoraInicio() + "', horatermino='" + bus.getHoraTermino() +"' WHERE patente='" + bus.getPatenteBus() + "', horatermino='" + bus.getnRecorrido() +"'";
+            query = "UPDATE buses SET horainicio='" + bus.getHoraInicio() + "', horatermino='" + bus.getHoraTermino() + "', nrecorrido='" + bus.getnRecorrido() + "' WHERE patente='" + bus.getPatenteBus() + "'";
             s.executeUpdate(query);
             return true;
         } catch (SQLException ex) {
@@ -115,7 +115,7 @@ public class BusG implements BusBD{
         
         try{
             Statement s = link.createStatement();
-            query="insert into buses(Nombre,Apellido,Rut,PatenteAsociada)values('"+bus.getHoraInicio()+"','"+bus.getHoraTermino()+"','"+bus.getPatenteBus()+"','"+bus.getnRecorrido()+"')";
+            query="insert into buses(horainicio,horatermino,patente,nrecorrido)values('"+bus.getHoraInicio()+"','"+bus.getHoraTermino()+"','"+bus.getPatenteBus()+"','"+bus.getnRecorrido()+"')";
             s.executeUpdate(query);
             return true;
             

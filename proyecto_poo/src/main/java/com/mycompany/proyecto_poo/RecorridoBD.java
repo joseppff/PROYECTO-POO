@@ -13,6 +13,6 @@ import java.util.ArrayList;
  */
 public interface RecorridoBD {
     ArrayList<Recorrido>ListaRecorrido=new ArrayList<Recorrido>();
-    public ArrayList<Recorrido> Leer(Connection link, int id);
+    public ArrayList<Recorrido> Leer(Connection link);
 }
 

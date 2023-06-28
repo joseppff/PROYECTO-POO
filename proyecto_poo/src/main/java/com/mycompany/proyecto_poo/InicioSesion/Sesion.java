@@ -87,6 +87,13 @@ public class Sesion extends javax.swing.JFrame {
 
     private void BusesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BusesMouseClicked
         // TODO add your handling code here:
+        Buses buses=new Buses();
+        buses.setVisible(true);
+        this.add(buses);
+            
+        try {
+           buses.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {}
     }//GEN-LAST:event_BusesMouseClicked
 
     private void ReporteConductorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReporteConductorMouseClicked

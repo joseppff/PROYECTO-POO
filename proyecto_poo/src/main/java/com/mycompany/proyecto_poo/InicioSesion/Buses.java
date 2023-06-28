@@ -12,6 +12,7 @@ import Controladores.ConexionBD;
 import java.sql.Connection;
 import Controladores.RecorridoG;
 import com.mycompany.proyecto_poo.Recorrido;
+import com.mycompany.proyecto_poo.RecorridoBD;
 
 
 
@@ -31,8 +32,25 @@ public class Buses extends javax.swing.JInternalFrame {
         
         conexion=new ConexionBD();
         link=conexion.Conectar();
+        
+        CargarRecorridos();
     }
 
+    
+    public void CargarRecorridos(){
+        
+        ArrayList<Recorrido>Lista=new ArrayList<Recorrido>();
+        RecorridoG Listarecorrido=new RecorridoG();
+        Lista=Listarecorrido.Leer(link);
+         for(int i=0;i<Lista.size();i++){
+            Recorrido recorrido=new Recorrido(Lista.get(i).getNumeroRecorrido());
+            cambiarRecorrido.addItem(String.valueOf(Lista.get(i).getNumeroRecorrido()));
+        }
+        
+        
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,7 +127,6 @@ public class Buses extends javax.swing.JInternalFrame {
             }
         });
 
-        cambiarRecorrido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cambiarRecorrido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cambiarRecorridoActionPerformed(evt);
@@ -183,43 +200,90 @@ public class Buses extends javax.swing.JInternalFrame {
 
     private void ModificarBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarBusActionPerformed
         // TODO add your handling code here:
+        BusG bus=new BusG();
+        Bus ConsultaBus=new Bus();
+        
+        if(!txtPatenteBus.getText().equals("")){
+            ConsultaBus=bus.Buscar(link,txtPatenteBus.getText());
+            JOptionPane.showMessageDialog(null, "");
+            
+        }else{
+             JOptionPane.showMessageDialog(null, "Coloque una patente valida");
+        }
+        
+        ConsultaBus.setHoraInicio(Integer.valueOf(txtHoraInicio.getText()));
+        ConsultaBus.setHoraTermino(Integer.valueOf(txtHoraTermino.getText()));
+        ConsultaBus.setPatenteBus(txtPatenteBus.getText());
+        ConsultaBus.setnRecorrido(Integer.parseInt(cambiarRecorrido.getSelectedItem().toString()));
+        
+        if(bus.Actualizar(link,ConsultaBus)){
+            JOptionPane.showMessageDialog(null, "Datos Modificados!");
+        }else{
+            JOptionPane.showMessageDialog(null,"Los datos no fueron modificados");
+        }
+
     }//GEN-LAST:event_ModificarBusActionPerformed
 
     private void EliminarBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarBusActionPerformed
         // TODO add your handling code here:
+        BusG bus=new BusG();
+        Bus ConsultaBus=new Bus();
+        ConsultaBus.setPatenteBus(txtPatenteBus.getText());
+        
+        if(bus.Crear(link,ConsultaBus)){
+            JOptionPane.showMessageDialog(null, "Datos Eliminados!");
+        }else{
+            JOptionPane.showMessageDialog(null,"Los datos no fueron eliminados");
+        }
+
+                      
+    
     }//GEN-LAST:event_EliminarBusActionPerformed
 
     private void BuscarBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarBusActionPerformed
         // TODO add your handling code here:
+        
+        BusG bus=new BusG();
+        Bus ConsultaBus=new Bus();
+   
+        if(!txtPatenteBus.getText().equals("")){
+            ConsultaBus=bus.Buscar(link,txtPatenteBus.getText());
+            JOptionPane.showMessageDialog(null, "");
+            
+        }else{
+             JOptionPane.showMessageDialog(null, "Coloque una patente valida");
+        }
+       
+        
+        txtHoraInicio.setText(String.valueOf(ConsultaBus.getHoraInicio()));
+        txtHoraTermino.setText(String.valueOf(ConsultaBus.getHoraTermino()));
+        txtPatenteBus.setText(ConsultaBus.getPatenteBus());
+        cambiarRecorrido.setSelectedItem(String.valueOf(ConsultaBus.getnRecorrido()));
+        
+        
+        
+        
     }//GEN-LAST:event_BuscarBusActionPerformed
 
     private void GuardarBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarBusActionPerformed
         // TODO add your handling code here:
         BusG bus=new BusG();
         Bus ConsultaBus=new Bus();
-        
+
+        ConsultaBus.setHoraInicio(Integer.valueOf(txtHoraInicio.getText()));
+        ConsultaBus.setHoraTermino(Integer.valueOf(txtHoraTermino.getText()));
         ConsultaBus.setPatenteBus(txtPatenteBus.getText());
-        ConsultaBus.setnRecorrido(txtNumeroRecorrido.getText());
-        ConsultaBus.setHoraInicio(txtHoraInicio.getText());
-        ConsultaBus.setHoraTermino(txtHoraTermino.getText());
+        ConsultaBus.setnRecorrido(Integer.parseInt(cambiarRecorrido.getSelectedItem().toString()));
+
         if(bus.Crear(link,ConsultaBus)){
             this.setVisible(false);
             JOptionPane.showMessageDialog(null,"Datos Creados!");
         }
-                 
+         
     }//GEN-LAST:event_GuardarBusActionPerformed
 
     private void cambiarRecorridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarRecorridoActionPerformed
-    // TODO add your handling code here:
 
-        ArrayList<Recorrido> listaRecorrido = new ArrayList<Recorrido>();
-        Recorrido recorrido = new Recorrido();
-
-        listaRecorrido = recorrido.Leer(link);
-
-        for (Recorrido reg : listaRecorrido) {
-            cambiarRecorrido.addItem(String.valueOf(reg.getNumeroRecorrido()));
-        } 
     }//GEN-LAST:event_cambiarRecorridoActionPerformed
 
 

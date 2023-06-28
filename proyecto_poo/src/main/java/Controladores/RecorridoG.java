@@ -21,18 +21,16 @@ import static com.mycompany.proyecto_poo.RecorridoBD.ListaRecorrido;
  * @author diego
  */
 public class RecorridoG {
-    public String query;
-        public ArrayList<Recorrido> Leer(Connection link,int id){
+        public String query;
+        public ArrayList<Recorrido> Leer(Connection link){
             
             try{
             Statement s = link.createStatement();
-
-            query="SELECT * FROM `Recorridos`";
-            System.out.println(query);
+            query="select * from Recorridos";
             ResultSet rs=s.executeQuery(query);
                 while (rs.next()){
                    Recorrido recorrido=new Recorrido();
-                   recorrido.setNumeroRecorrido(rs.getInt("recorrido"));
+                   recorrido.setNumeroRecorrido(rs.getInt("numerorecorrido"));
                    ListaRecorrido.add(recorrido);
 
                 }
